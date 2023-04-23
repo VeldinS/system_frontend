@@ -1,0 +1,43 @@
+.navigation{
+    position: absolute;
+    width: 100%;
+}
+
+.navigation-bar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 1rem;
+    align-items: center;
+}
+
+.navigation-logo{
+    width: 10%;
+    padding-left: 3rem;
+}
+
+.navigation-logo > img {
+    width: 80px;
+    height: auto;
+    filter: brightness(80%);
+}
+
+.navigation-heading{
+    width: 75%;
+}
+
+.navigation-heading > h1 {
+    color: whitesmoke;
+    letter-spacing: 5px;
+    font-size: 180%;
+}
+
+.navigation-language{
+    width: 10%;
+}
+
+.navigation-language > h1{
+    color: whitesmoke;
+    letter-spacing: 2px;
+    font-size: 110%;
+}
