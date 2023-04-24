@@ -23,6 +23,7 @@ function App() {
   if(isLoggedIn){
     routes =(
             <Routes>
+                <Route path='/' element={<Login/>}/>
                 <Route path='/Login' element={<Login/>}/>
                 <Route path='/Student/Dashboard' element={<StudentDashboard/>}/>
             </Routes>
@@ -31,6 +32,7 @@ function App() {
   else{
     routes = (
             <Routes>
+                <Route path='/' element={<Login/>}/>
                 <Route path='/Login' element={<Login/>}/>
                 <Route path='/Register' element={<Register/>}/>
                 <Route path='/Student/Dashboard' element={<StudentDashboard/>}/>
