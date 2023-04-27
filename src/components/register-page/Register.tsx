@@ -98,8 +98,8 @@ const Register: React.FC = () => {
                                 </label>
                             </div>
                         </div>
-                        <button className="register-submit" onClick={() => navigate('/Login')}>Register</button>
-                        <p className="register-signin">Already have an acount ? <a href="#" onClick={() => navigate('/Login')}>Login!</a></p>
+                        <button className="register-submit" onClick={() => navigate('/StudentLogin')}>Register</button>
+                        <p className="register-signin">Already have an account? <a className={"signup2"} onClick={() => navigate('/Login/Student')}>Login!</a></p>
                     </form>
                 </div>
             </div>

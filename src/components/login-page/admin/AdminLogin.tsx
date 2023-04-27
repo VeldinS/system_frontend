@@ -1,17 +1,15 @@
 import React, {useContext, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 
-import {AuthContext} from "../../authentication/authContext";
+import {AuthContext} from "../../../authentication/authContext";
 
-import './login.css'
-import Navigation from "../UI Elements/navigation/Navigation";
+import './adminLogin.css'
+import Navigation from "../../UI Elements/navigation/Navigation";
 
-const Login: React.FC = () => {
+const AdminLogin: React.FC = () => {
 
     const auth = useContext(AuthContext)
-
     const navigate = useNavigate()
-
     const [formData, setFormData] = useState({username: '', password: ''})
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +21,7 @@ const Login: React.FC = () => {
         event.preventDefault();
         const adminCredentials = {...formData};
         try {
-            const res = await fetch(  'http://localhost:5000/Login', {
+            const res = await fetch(  'http://localhost:5000/Login/Admin', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -32,7 +30,7 @@ const Login: React.FC = () => {
             })
             if (res.status === 200) {
                 auth.login();
-                navigate('/Student/Dashboard');
+                navigate('/Admin/Dashboard');
             } else {
                 alert('INVALID CREDENTIALS');
             }
@@ -47,24 +45,19 @@ const Login: React.FC = () => {
                 <Navigation/>
                 <div className={"form-part"} style={{paddingTop: "4rem"}}   >
                     <div className="form-container">
-                        <p className="title">Login</p>
+                        <p className="title">Admin Login</p>
                         <form className="form">
                             <div className="input-group">
-                                <label htmlFor="username">Student Mail</label>
+                                <label htmlFor="username">Mail</label>
                                 <input type="text" name="username" id="username" placeholder=""/>
                             </div>
-                            <div className="input-group">
+                            <div style={{marginBottom: "1rem"}} className="input-group">
                                 <label htmlFor="password">Password</label>
                                 <input type="password" name="password" id="password" placeholder=""/>
-                                    <div className="forgot">
-                                        <a rel="noopener noreferrer" href="#">Forgot Password ?</a>
-                                    </div>
                             </div>
-                            <button className="sign" onClick={() => navigate('/Student/Dashboard')}>Login</button>
+                            <button className="sign" onClick={() => navigate('/Admin/Dashboard')}>Login</button>
                         </form>
-                        <p className="signup">Don't have a student account jet?
-                            <br/><a rel="noopener noreferrer" href="#" className="" onClick={() => navigate('/Register')}>Register!</a>
-                        </p>
+                        <p className="signup signup2" onClick={() => navigate('/Login/Student')}>Login as student?</p>
                     </div>
                 </div>
             </div>
@@ -72,4 +65,4 @@ const Login: React.FC = () => {
     );
 };
 
-export default Login;
+export default AdminLogin;

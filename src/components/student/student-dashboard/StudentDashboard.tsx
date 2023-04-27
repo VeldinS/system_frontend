@@ -1,16 +1,18 @@
 import React from 'react';
-import Navigation from "../UI Elements/navigation/Navigation";
 
 import './studentDashboard.css'
-import Button from "../UI Elements/dashboard/Button";
+import Button from "../../UI Elements/dashboard/Button";
+import Navigation2 from "../../UI Elements/navigation/Navigation2";
 
 function StudentDashboard() {
     return (
         <div>
             <div className={"student-dashboard-main"} style={{minHeight: "100vh"}}>
-                <Navigation/>
-                <div className={"dashboard-heading"}>
-                    <h1>STUDENT DASHBOARD</h1>
+                <Navigation2 field1={'STUDENT DASHBOARD'} field3={'Account Settings'}
+                             field4={'Language'} field5={'Help'} field6={'Logout'}
+                             navigate1={''} navigate2={'/Student/Settings'} navigate3={'/Help'} navigate4={'/Login/Student'}
+                />
+                <div style={{paddingTop: "2rem"}} className={"dashboard-heading"}>
                     <div className={"dashboard-buttons"}>
                         <div className={"button"}>
                              <Button field1={'ACADEMIC RECORD'} field2={'Check your detailed academic record!'}/>

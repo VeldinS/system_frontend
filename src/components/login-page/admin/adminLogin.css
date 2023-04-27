@@ -138,3 +138,10 @@
     line-height: 1rem;
     color: rgba(156, 163, 175, 1);
 }
+
+.signup2:hover{
+    transform: scale(1.1);
+    color: white;
+    transition: 1s;
+    cursor: pointer;
+}

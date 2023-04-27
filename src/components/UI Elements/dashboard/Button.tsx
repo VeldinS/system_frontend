@@ -14,9 +14,7 @@ function Button(props: DashboardButtonProps) {
                 <div className="flip-card-inner">
                     <div className="flip-card-front">
                         <p className="title">{props.field1}</p>
-                    </div>
-                    <div className="flip-card-back">
-                        <p className="title">{props.field2}</p>
+                        <p className="subtitle">{props.field2}</p>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,50 @@
+.settings-page{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 4rem;
+}
+
+
+.account-details{
+    width: 460px;
+    border-radius: 0.75rem;
+    background-color: rgba(17, 24, 39, 1);
+    padding: 1rem 2rem;
+    color: rgba(243, 244, 246, 1);
+    margin: auto 3rem auto auto;
+    height: 550px;
+}
+
+.account-details-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.account-details-image{
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin-right: 4rem;
+}
+
+.settings-change{
+    margin: auto auto auto 3rem;
+}
+
+.settings-container{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 450px;
+    height: 550px;
+}
+
+
+.settings-change-button{
+    width: 40%;
+    margin: auto auto auto 9rem;
+}
