@@ -1,0 +1,50 @@
+.course{
+    width: 100%;
+    background-color: darkgrey;
+    height: 5rem;
+    border-radius: 10px;
+    margin: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    font-weight: bold;
+}
+
+.course-details-front {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.course-details-back{
+    display: none;
+    flex-direction: row;
+    width: 100%;
+}
+
+.course-details > p{
+    margin: 0;
+}
+
+.assessment{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    align-items: center;
+    height: 80%;
+}
+
+.assessment > p{
+    margin: 0 0 5px;
+    font-weight: normal;
+}
+
+.course:hover .course-details-front{
+    display: none;
+}
+
+.course:hover .course-details-back{
+    display: flex;
+}

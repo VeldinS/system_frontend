@@ -68,7 +68,7 @@ function Navigation2(props: NavigationProps) {
                         <hr/>
                         <a>{props.field4}</a>
                         <hr/>
-                        <a onClick={() => navigate(props.navigate3)}>{props.field5}</a>
+                        <a href={props.navigate3}>{props.field5}</a>
                         <hr/>
                         <a onClick={() => navigate(props.navigate4)}>{props.field6}</a>
                     </div>

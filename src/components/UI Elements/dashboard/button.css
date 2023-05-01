@@ -5,15 +5,22 @@
     height: 200px;
     perspective: 1000px;
     font-family: sans-serif;
+    transition: 0.8s;
+}
+
+.flip-card:hover{
+    transform: scale(1.1);
+    transition: 0.8s;
 }
 
 .title {
     font-size: 1em;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: 2px;
     text-align: center;
     margin: 0;
     padding: 10px;
+    transition: 1s;
 }
 
 .flip-card-inner {
@@ -39,7 +46,7 @@
 
 .flip-card-front {
     background: #0f172a;
-    color: whitesmoke;
+    color: white;
     border: 1px solid whitesmoke;
     border-radius: 1rem;
     transform: scale(0.9);
@@ -54,6 +61,7 @@
     opacity: 0.2;
     transform: scale(0.9);
     padding: 10px;
+    transition: 1s;
 }
 
 .flip-card-front:hover > .title{

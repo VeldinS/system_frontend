@@ -8,6 +8,12 @@ import StudentDashboard from "./components/student/student-dashboard/StudentDash
 import AdminLogin from "./components/login-page/admin/AdminLogin";
 import ForgotPassword from "./components/credentials-forgot/ForgotPassword";
 import AccountSettings from "./components/student/student-acc-settings/AccountSettings";
+import AcademicRecord from "./components/student/academic-record/AcademicRecord";
+import CourseSchedule from "./components/student/course-schedule/CourseSchedule";
+import ExamSchedule from "./components/student/exam-schedule/ExamSchedule";
+import GradeDetails from "./components/student/grade-details/GradeDetails";
+import PerformanceStudent from "./components/student/student-performance/PATStudent";
+import CertificateApplication from "./components/student/certificate-application/CertificateApplication";
 
 function App() {
 
@@ -32,6 +38,12 @@ function App() {
                 <Route path='/Login/Admin' element={<AdminLogin/>}/>
                 <Route path='/Student/Dashboard' element={<StudentDashboard/>}/>
                 <Route path='/Student/Settings' element={<AccountSettings/>}/>
+                <Route path='/Student/Transcript' element={<AcademicRecord/>}/>
+                <Route path='/Student/CourseSchedule' element={<CourseSchedule/>}/>
+                <Route path='/Student/ExamSchedule' element={<ExamSchedule/>}/>
+                <Route path='/Student/GradeDetails' element={<GradeDetails/>}/>
+                <Route path='/Student/Performance' element={<PerformanceStudent/>}/>
+                <Route path='/Student/SCA' element={<CertificateApplication/>}/>
             </Routes>
     )
   }
@@ -45,6 +57,12 @@ function App() {
                 <Route path='/Register' element={<Register/>}/>
                 <Route path='/Student/Dashboard' element={<StudentDashboard/>}/>
                 <Route path='/Student/Settings' element={<AccountSettings/>}/>
+                <Route path='/Student/Transcript' element={<AcademicRecord/>}/>
+                <Route path='/Student/CourseSchedule' element={<CourseSchedule/>}/>
+                <Route path='/Student/ExamSchedule' element={<ExamSchedule/>}/>
+                <Route path='/Student/GradeDetails' element={<GradeDetails/>}/>
+                <Route path='/Student/Performance' element={<PerformanceStudent/>}/>
+                <Route path='/Student/SCA' element={<CertificateApplication/>}/>
             </Routes>
     )
   }
