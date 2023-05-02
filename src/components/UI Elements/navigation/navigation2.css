@@ -40,12 +40,13 @@
     color: white;
     font-weight: bold;
     letter-spacing: 2px;
+    transition: 0.7s;
 }
 
 .back-to-dashboard p:hover{
     cursor: pointer;
     transform: scale(1.1);
-    transition: 0.5s ease-in-out;
+    transition: 0.7s ease-in-out;
 }
 
 .navigation-menu{
@@ -67,7 +68,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    transition-duration: .5s;
+    transition-duration: 1s;
     z-index: 30;
 }
 
@@ -135,6 +136,7 @@
     font-weight: bold;
     font-size: 1.25rem;
     border-radius: 0.5rem;
+    transition: 1s;
 }
 
 #navbar a:hover{

@@ -1,0 +1,24 @@
+.dashboard-heading{
+    position: absolute;
+    top:15%;
+    text-align: center;
+}
+
+.dashboard-heading > h1{
+    color: whitesmoke;
+    letter-spacing: 5px;
+}
+
+.dashboard-buttons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 3rem 10rem;
+}
+
+.exam-page-card{
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}

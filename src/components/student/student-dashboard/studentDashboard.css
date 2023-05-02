@@ -6,18 +6,13 @@
 }
 
 
-.dashboard-heading{
+.exam-page-heading{
     position: absolute;
     top:15%;
     text-align: center;
 }
 
-.dashboard-heading > h1{
-    color: whitesmoke;
-    letter-spacing: 5px;
-}
-
-.dashboard-buttons{
+.exam-page-cards{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
