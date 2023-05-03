@@ -1,0 +1,33 @@
+
+.certificate-form-div{
+    margin: auto;
+}
+
+.certificate-container{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 450px;
+    height: 450px;
+}
+
+
+.settings-change-button{
+    width: 40%;
+    margin: auto auto auto 9rem;
+}
+
+.certificate-select{
+    height: 2rem;
+    width: 80%;
+    border-radius: 10px;
+    font-size: 110%;
+    text-align: center;
+    background-color: darkgrey;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+
+.certificate-select-div{
+    display: flex;
+    flex-direction: row;
+}
