@@ -1,47 +1,94 @@
-import React, {useContext, useState} from 'react';
-import {useNavigate} from "react-router-dom";
-
-import {AuthContext} from "../../../authentication/authContext";
+import React, { useEffect, useState} from 'react';
+import {useNavigate, useParams} from "react-router-dom";
+import axios from "axios";
 
 import './accountSettings.css'
 
-import image1 from '../../../images/dummy.jpeg'
+import image1 from '../../../images/dummy.jpg'
 
 import Navigation2 from "../../UI Elements/navigation/Navigation2";
 
+interface Student {
+    _id: any;
+    name:String,
+    surname:String,
+    id:String,
+    image:String,
+    citizenshipId:String,
+    registrationYear:String,
+    Department:String,
+    RegistrationType:String,
+    EducationLevel:String,
+}
+
 const AccountSettings: React.FC = () => {
 
-    const auth = useContext(AuthContext)
-
+    const {studentId} = useParams()
     const navigate = useNavigate()
+    const [studentData, setStudentData] = useState<Student>()
+    const [studentPassword, setStudentPassword] = useState('')
+    const [studentMail, setStudentMail] = useState('')
+    const [studentPhNum, setStudentPhNum] = useState<number>();
+    //FETCH STUDENT DATA
+    useEffect(() => {
+        fetch(   `http://localhost:5000/Student/${studentId}`)
+            .then((res) => res.json())
+            .then((data) => setStudentData(data as Student))
+    }, [studentId]);
 
-    const [formData, setFormData] = useState({username: '', password: ''})
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //PASSWORD CHANGE
+    const handleChangePassword = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
-        setFormData({...formData, [name]: value});
+        // @ts-ignore
+        await setStudentPassword({[name]: value});
     }
-
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmitPassword = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const adminCredentials = {...formData};
-        try {
-            const res = await fetch(  'http://localhost:5000/Password/Forgot', {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(adminCredentials)
-            })
-            if (res.status === 200) {
-                auth.login();
-                navigate('/Student/Dashboard');
-            } else {
-                alert('INVALID CREDENTIALS');
+        const newPassword = studentPassword
+
+        const response = await axios.patch(`http://localhost:5000/Student/UpdatePassword/${studentId}`, newPassword, {
+            headers: {
+                'Content-Type': 'application/json',
             }
-        } catch (err) {
-            console.log('invalid credentials')
-        }
+        });
+        alert('PASSWORD SUCCESSFULLY UPDATED!')
+        navigate(`/Dashboard/Student/${studentId}`);
+    };
+
+    //MAIL CHANGE
+    const handleChangeMail = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const {name, value} = event.target;
+        // @ts-ignore
+        await setStudentMail({[name]: value});
+    }
+    const handleSubmitMail = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const newMail = studentMail
+        const response = await axios.patch(`http://localhost:5000/Student/UpdateMail/${studentId}`, newMail, {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+        alert('MAIL SUCCESSFULLY UPDATED!')
+        navigate(`/Dashboard/Student/${studentId}`);
+    };
+
+    //PHONE NUMBER CHANGE
+    const handleChangePhNum = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const {name, value} = event.target;
+        // @ts-ignore
+        await setStudentPhNum({[name]: value});
+    }
+    const handleSubmitPhNum = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const newPhNum = studentPhNum
+        const response = await axios.patch(`http://localhost:5000/Student/UpdatePhNum/${studentId}`, newPhNum, {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+        alert('PHONE NUMBER SUCCESSFULLY UPDATED!')
+        navigate(`/Settings/Student/${studentId}`);
     };
 
     return (
@@ -49,15 +96,16 @@ const AccountSettings: React.FC = () => {
             <div className={"login-page-main"} style={{minHeight: "100vh"}}>
                 <Navigation2 field1={'ACCOUNT SETTINGS'} field2={'Back to Dashboard'} field3={'Dashboard'}
                              field4={'Language'} field5={'Help'} field6={'Logout'}
-                             navigate1={'/Student/Dashboard'} navigate2={'/Student/Dashboard'} navigate3={'https://www.ius.edu.ba/en/contact'} navigate4={'/Login/Student'}
+                             navigate1={`/Dashboard/Student/${studentId}`} navigate2={'/Student/Dashboard'} navigate3={'https://www.ius.edu.ba/en/contact'} navigate4={'/Login/Student'}
                 />
-                <div className={"settings-page"}>
+                {studentData && (
+                <div key={studentData._id} className={"settings-page"}>
                     <div className={"account-details"}>
                         <div style={{textAlign: "left"}} className={"account-details-row"}>
                             <img src={image1} className={"account-details-image"}/>
                             <div className={"basic-info"}>
-                                <p>Name and Surname</p>
-                                <p>190302158</p>
+                                <p>{studentData.name} {studentData.surname}</p>
+                                <p>{studentData.id}</p>
                                 <p>Status: Active</p>
                             </div>
                         </div>
@@ -65,19 +113,19 @@ const AccountSettings: React.FC = () => {
                             <div className={"info-part1"}>
                                 <hr/>
                                 <p style={{fontWeight: "bold", margin: "0"}}>Citizenship ID</p>
-                                <p style={{margin: "5px"}}>2205001170013 </p>
+                                <p style={{margin: "5px"}}>{studentData.citizenshipId}</p>
                                 <hr/>
-                                <p style={{fontWeight: "bold", margin: "0"}}>Registration Date</p>
-                                <p style={{margin: "5px"}}>30.09.2019</p>
+                                <p style={{fontWeight: "bold", margin: "0"}}>Registration Year</p>
+                                <p style={{margin: "5px"}}>{studentData.registrationYear}</p>
                                 <hr/>
                                 <p style={{fontWeight: "bold", margin: "0"}}>Department / Program</p>
-                                <p style={{margin: "5px"}}>FENS / Department of Engineering / Software Engineering</p>
+                                <p style={{margin: "5px"}}>{studentData.Department}</p>
                                 <hr/>
                                 <p style={{fontWeight: "bold", margin: "0"}}>Registration Type</p>
-                                <p style={{margin: "5px"}}>Regular Enrollment</p>
+                                <p style={{margin: "5px"}}>{studentData.RegistrationType}</p>
                                 <hr/>
                                 <p style={{fontWeight: "bold", margin: "0"}}>Education Level</p>
-                                <p style={{margin: "5px"}}>I Cycle (Bachelor)</p>
+                                <p style={{margin: "5px"}}>{studentData.EducationLevel}</p>
                                 <hr/>
                             </div>
                         </div>
@@ -86,27 +134,31 @@ const AccountSettings: React.FC = () => {
                     <div className={"settings-change"}>
                         <div className="form-container settings-container">
                             <p className="title">Change Your Account Settings</p>
-                            <form className="form">
-                                <div className="input-group">
-                                    <input style={{marginBottom: "10px"}} type="text" name="username" id="username" placeholder="Current Password"/>
-                                    <input style={{marginBottom: "10px"}} type="text" name="username" id="username" placeholder="New Password"/>
-                                    <button style={{marginBottom: "20px"}} className="sign settings-change-button" >Update!</button>
-                                </div>
-                                <div className="input-group">
-                                    <input style={{marginBottom: "10px"}} type="text" name="username" id="username" placeholder="Current Email"/>
-                                    <input style={{marginBottom: "10px"}} type="text" name="username" id="username" placeholder="New Email"/>
-                                    <button style={{marginBottom: "20px"}} className="sign settings-change-button" >Update!</button>
-                                </div>
-                                <div className="input-group">
-                                    <input style={{marginBottom: "10px"}} type="text" name="username" id="username" placeholder="Current Phone Number"/>
-                                    <input style={{marginBottom: "10px"}} type="text" name="username" id="username" placeholder="New Phone Number"/>
-                                    <button style={{marginBottom: "20px"}} className="sign settings-change-button" >Update!</button>
-                                </div>
-                            </form>
+                                <form className="form" onSubmit={handleSubmitPassword}>
+                                    <div className="input-group">
+                                        <input style={{marginBottom: "10px"}} type="text" name="username" id="username" placeholder="Current Password"/>
+                                        <input defaultValue={studentPassword} onChange={handleChangePassword} style={{marginBottom: "10px"}} type="text" name="password" id="password" placeholder="New Password"/>
+                                        <button type={'submit'} style={{marginBottom: "20px"}} className="sign settings-change-button" >Update!</button>
+                                    </div>
+                                </form>
+                                <form className="form" onSubmit={handleSubmitMail}>
+                                    <div className="input-group">
+                                        <input style={{marginBottom: "10px"}} type="text" name="username" id="username" placeholder="Current Email"/>
+                                        <input defaultValue={studentMail} onChange={handleChangeMail} style={{marginBottom: "10px"}} type="text" name="mail" id="mail" placeholder="New Email"/>
+                                        <button type={'submit'} style={{marginBottom: "20px"}} className="sign settings-change-button" >Update!</button>
+                                    </div>
+                                </form>
+                                <form className="form" onSubmit={handleSubmitPhNum}>
+                                    <div className="input-group">
+                                        <input style={{marginBottom: "10px"}} type="text" name="username" id="username" placeholder="Current Phone Number"/>
+                                        <input defaultValue={studentPhNum} onChange={handleChangePhNum} style={{marginBottom: "10px"}} type="number" name="phoneNumber" id="phoneNumber" placeholder="New Phone Number"/>
+                                        <button type={'submit'} style={{marginBottom: "20px"}} className="sign settings-change-button" >Update!</button>
+                                    </div>
+                                </form>
                         </div>
                     </div>
-
                 </div>
+                )}
             </div>
         </div>
     );

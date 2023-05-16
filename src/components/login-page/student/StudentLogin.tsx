@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {useNavigate} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 import {AuthContext} from "../../../authentication/authContext";
 
@@ -12,7 +12,7 @@ const StudentLogin: React.FC = () => {
 
     const navigate = useNavigate()
 
-    const [formData, setFormData] = useState({username: '', password: ''})
+    const [formData, setFormData] = useState({mail: '', password: ''})
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
@@ -21,18 +21,20 @@ const StudentLogin: React.FC = () => {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const adminCredentials = {...formData};
+        const studentCredentials = {...formData};
         try {
             const res = await fetch(  'http://localhost:5000/Login/Student', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(adminCredentials)
+                body: JSON.stringify(studentCredentials)
             })
             if (res.status === 200) {
+                const data = await res.json();
+                const studentId = data.user._id;
                 auth.login();
-                navigate('/Student/Dashboard');
+                navigate(`/Dashboard/Student/${studentId}`);
             } else {
                 alert('INVALID CREDENTIALS');
             }
@@ -48,24 +50,24 @@ const StudentLogin: React.FC = () => {
                 <div className={"form-part"} style={{paddingTop: "4rem"}}   >
                     <div className="form-container">
                         <p className="title">Login</p>
-                        <form className="form">
+                        <form className="form" onSubmit={handleSubmit}>
                             <div className="input-group">
                                 <label htmlFor="username">Student Mail</label>
-                                <input type="text" name="username" id="username" placeholder=""/>
+                                <input value={formData.mail} onChange={handleChange} type="text" name="mail" id="mail" placeholder=""/>
                             </div>
                             <div className="input-group">
                                 <label htmlFor="password">Password</label>
-                                <input type="password" name="password" id="password" placeholder=""/>
+                                <input value={formData.password} onChange={handleChange} type="password" name="password" id="password" placeholder=""/>
                                     <div className="forgot">
                                         <a className={"signup2"} rel="noopener noreferrer" onClick={() => navigate('/Credentials/Forgot')}>Forgot Password ?</a>
                                     </div>
                             </div>
-                            <button className="sign" onClick={() => navigate('/Student/Dashboard')}>Login</button>
+                                <button type="submit" className="sign">Login</button>
                         </form>
                         <p className="signup ">Don't have a student account jet?
                             <br/><a rel="noopener noreferrer" className="signup2" onClick={() => navigate('/Register')}>Register!</a>
                         </p>
-                        <p className="signup signup2" onClick={() => navigate('/Login/Admin')}>Login as admin?</p>
+                        <p className="signup signup2" onClick={() => navigate('/Login/SAO')}>Login as admin?</p>
                     </div>
                 </div>
             </div>

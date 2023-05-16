@@ -1,7 +1,7 @@
 import React from 'react';
 import './gradeDetails.css'
 import Navigation2 from "../../UI Elements/navigation/Navigation2";
-import image1 from "../../../images/dummy.jpeg";
+import image1 from "../../../images/dummy.jpg";
 import StudentInfo from "../../UI Elements/student-info-card/StudentInfo";
 import CourseDetails from "../../UI Elements/course-grades/CourseDetails";
 
@@ -15,7 +15,7 @@ function GradeDetails() {
                 />
                 <div className={"grades-page"}>
                     <div className={"student-details"}>
-                        <StudentInfo image={image1} name={'Din Kulaglic'} id={190305521} status={'Active'} citizenshipId={234543234566666} registrationYear={2019}
+                        <StudentInfo image={image1} name={'Din'} surname={'Kulaglic'} id={'190305521'} status={'Active'} citizenshipId={'234543234566666'} registrationYear={'2019'}
                                      department={'FENS / Department of Engineering / Software Engineering'} regType={'Regular'} eduLevel={'I Cycle (Bachelor)'}/>
                     </div>
                         <div className={"student-grades"}>

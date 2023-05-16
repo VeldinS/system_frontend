@@ -3,10 +3,11 @@ import './studentInfo.css'
 interface StudentInfoProps{
     image:string,
     name: string,
-    id: number,
+    surname: string,
+    id: string,
     status: string,
-    citizenshipId: number,
-    registrationYear: number,
+    citizenshipId: string,
+    registrationYear: string,
     department: string,
     regType: string,
     eduLevel: string
@@ -19,7 +20,7 @@ function StudentInfo(props: StudentInfoProps) {
                 <div style={{textAlign: "left"}} className={"student-details-row-transcript"}>
                     <img src={props.image} className={"student-details-image"}/>
                     <div>
-                        <p>{props.name}</p>
+                        <p>{props.name} {props.surname}</p>
                         <p>{props.id}</p>
                         <p>Status: {props.status}</p>
                     </div>

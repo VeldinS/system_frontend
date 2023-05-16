@@ -14,6 +14,11 @@ import ExamSchedule from "./components/student/exam-schedule/ExamSchedule";
 import GradeDetails from "./components/student/grade-details/GradeDetails";
 import PerformanceStudent from "./components/student/student-performance/PATStudent";
 import CertificateApplication from "./components/student/certificate-application/CertificateApplication";
+import Home from "./components/home/Home";
+import ProfessorLogin from "./components/login-page/professor/ProfessorLogin";
+import ProfessorDashboard from "./components/professor/professor-dashboard/ProfessorDashboard";
+import ProfessorCourseSchedule from "./components/professor/course-schedule/ProfessorCourseSchedule";
+import ProfessorExamSchedule from "./components/professor/exam-shedule/ProfessorExamSchedule";
 
 function App() {
 
@@ -32,37 +37,44 @@ function App() {
   if(isLoggedIn){
     routes =(
             <Routes>
-                <Route path='/' element={<StudentLogin/>}/>
+                <Route path='/' element={<Home/>}/>
                 <Route path='/Login/Student' element={<StudentLogin/>}/>
                 <Route path='/Credentials/Forgot' element={<ForgotPassword/>}/>
                 <Route path='/Login/Admin' element={<AdminLogin/>}/>
-                <Route path='/Student/Dashboard' element={<StudentDashboard/>}/>
-                <Route path='/Student/Settings' element={<AccountSettings/>}/>
-                <Route path='/Student/Transcript' element={<AcademicRecord/>}/>
+                <Route path='/Dashboard/Student/:studentId' element={<StudentDashboard/>}/>
+                <Route path='/Settings/Student/:studentId' element={<AccountSettings/>}/>
+                <Route path='/Student/Transcript/:studentId' element={<AcademicRecord/>}/>
                 <Route path='/Student/CourseSchedule' element={<CourseSchedule/>}/>
                 <Route path='/Student/ExamSchedule' element={<ExamSchedule/>}/>
                 <Route path='/Student/GradeDetails' element={<GradeDetails/>}/>
                 <Route path='/Student/Performance' element={<PerformanceStudent/>}/>
                 <Route path='/Student/SCA' element={<CertificateApplication/>}/>
+                <Route path='/Professor/Dashboard' element={<ProfessorDashboard/>}/>
+                <Route path='/Professor/CourseSchedule' element={<ProfessorCourseSchedule/>}/>
+                <Route path='/Professor/ExamSchedule' element={<ProfessorExamSchedule/>}/>
             </Routes>
     )
   }
   else{
     routes = (
             <Routes>
-                <Route path='/' element={<StudentLogin/>}/>
+                <Route path='/' element={<Home/>}/>
                 <Route path='/Login/Student' element={<StudentLogin/>}/>
                 <Route path='/Credentials/Forgot' element={<ForgotPassword/>}/>
-                <Route path='/Login/Admin' element={<AdminLogin/>}/>
+                <Route path='/Login/Professor' element={<ProfessorLogin/>}/>
+                <Route path='/Login/SAO' element={<AdminLogin/>}/>
                 <Route path='/Register' element={<Register/>}/>
-                <Route path='/Student/Dashboard' element={<StudentDashboard/>}/>
-                <Route path='/Student/Settings' element={<AccountSettings/>}/>
-                <Route path='/Student/Transcript' element={<AcademicRecord/>}/>
+                <Route path='/Dashboard/Student/:studentId' element={<StudentDashboard/>}/>
+                <Route path='/Settings/Student/:studentId' element={<AccountSettings/>}/>
+                <Route path='/Student/Transcript/:studentId' element={<AcademicRecord/>}/>
                 <Route path='/Student/CourseSchedule' element={<CourseSchedule/>}/>
                 <Route path='/Student/ExamSchedule' element={<ExamSchedule/>}/>
                 <Route path='/Student/GradeDetails' element={<GradeDetails/>}/>
                 <Route path='/Student/Performance' element={<PerformanceStudent/>}/>
                 <Route path='/Student/SCA' element={<CertificateApplication/>}/>
+                <Route path='/Professor/Dashboard' element={<ProfessorDashboard/>}/>
+                <Route path='/Professor/CourseSchedule' element={<ProfessorCourseSchedule/>}/>
+                <Route path='/Professor/ExamSchedule' element={<ProfessorExamSchedule/>}/>
             </Routes>
     )
   }
