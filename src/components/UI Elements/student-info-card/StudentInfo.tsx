@@ -6,14 +6,21 @@ interface StudentInfoProps{
     surname: string,
     id: string,
     status: string,
+    citizenshipIdField?: string,
     citizenshipId: string,
+    registrationYearField?: string,
     registrationYear: string,
+    departmentField?: string,
     department: string,
+    regTypeField?: string,
     regType: string,
+    eduLevelField?: string
     eduLevel: string
 }
 
 function StudentInfo(props: StudentInfoProps) {
+
+
     return (
         <div>
             <div className={"student-details-transcript"}>
@@ -28,19 +35,19 @@ function StudentInfo(props: StudentInfoProps) {
                 <div className={"student-details-row-transcript"}>
                     <div>
                         <hr/>
-                        <p style={{fontWeight: "bold", margin: "0"}}>Citizenship ID</p>
+                        <p style={{fontWeight: "bold", margin: "0"}}>{props.citizenshipIdField}</p>
                         <p style={{margin: "5px"}}>{props.citizenshipId}</p>
                         <hr/>
-                        <p style={{fontWeight: "bold", margin: "0"}}>Registration Year</p>
+                        <p style={{fontWeight: "bold", margin: "0"}}>{props.registrationYearField}</p>
                         <p style={{margin: "5px"}}>{props.registrationYear}</p>
                         <hr/>
-                        <p style={{fontWeight: "bold", margin: "0"}}>Department / Program</p>
+                        <p style={{fontWeight: "bold", margin: "0"}}>{props.departmentField}</p>
                         <p style={{margin: "5px"}}>{props.department}</p>
                         <hr/>
-                        <p style={{fontWeight: "bold", margin: "0"}}>Registration Type</p>
+                        <p style={{fontWeight: "bold", margin: "0"}}>{props.regTypeField}</p>
                         <p style={{margin: "5px"}}>{props.regType}</p>
                         <hr/>
-                        <p style={{fontWeight: "bold", margin: "0"}}>Education Level</p>
+                        <p style={{fontWeight: "bold", margin: "0"}}>{props.eduLevelField}</p>
                         <p style={{margin: "5px"}}>{props.eduLevel}</p>
                         <hr/>
                     </div>

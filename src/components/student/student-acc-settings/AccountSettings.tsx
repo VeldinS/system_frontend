@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
+import {texts} from "../../../languages/language";
 
 import './accountSettings.css'
 
@@ -29,6 +30,14 @@ const AccountSettings: React.FC = () => {
     const [studentPassword, setStudentPassword] = useState('')
     const [studentMail, setStudentMail] = useState('')
     const [studentPhNum, setStudentPhNum] = useState<number>();
+
+    const [language, setLanguage] = useState(localStorage.getItem("language") || "bosnian");
+    const toggleLanguage = () => {
+        const newLanguage = language === "bosnian" ? "english" : "bosnian";
+        setLanguage(newLanguage);
+        localStorage.setItem("language", newLanguage);
+    }
+
     //FETCH STUDENT DATA
     useEffect(() => {
         fetch(   `http://localhost:5000/Student/${studentId}`)
@@ -94,9 +103,9 @@ const AccountSettings: React.FC = () => {
     return (
         <div>
             <div className={"login-page-main"} style={{minHeight: "100vh"}}>
-                <Navigation2 field1={'ACCOUNT SETTINGS'} field2={'Back to Dashboard'} field3={'Dashboard'}
-                             field4={'Language'} field5={'Help'} field6={'Logout'}
-                             navigate1={`/Dashboard/Student/${studentId}`} navigate2={'/Student/Dashboard'} navigate3={'https://www.ius.edu.ba/en/contact'} navigate4={'/Login/Student'}
+                <Navigation2 field1={texts[language].accSetHeading} field2={texts[language].backToDash} field3={texts[language].dashboard}
+                             field4={texts[language].navField2} onClick={toggleLanguage} field5={texts[language].navField3} field6={texts[language].navField4}
+                             navigate1={`/Dashboard/Student/${studentId}`} navigate2={`/Dashboard/Student/${studentId}`} navigate3={'https://www.ius.edu.ba/en/contact'} navigate4={'/Login/Student'}
                 />
                 {studentData && (
                 <div key={studentData._id} className={"settings-page"}>
@@ -106,25 +115,25 @@ const AccountSettings: React.FC = () => {
                             <div className={"basic-info"}>
                                 <p>{studentData.name} {studentData.surname}</p>
                                 <p>{studentData.id}</p>
-                                <p>Status: Active</p>
+                                <p>Status: {texts[language].status}</p>
                             </div>
                         </div>
                         <div className={"account-details-row"}>
                             <div className={"info-part1"}>
                                 <hr/>
-                                <p style={{fontWeight: "bold", margin: "0"}}>Citizenship ID</p>
+                                <p style={{fontWeight: "bold", margin: "0"}}>{texts[language].citizenship}</p>
                                 <p style={{margin: "5px"}}>{studentData.citizenshipId}</p>
                                 <hr/>
-                                <p style={{fontWeight: "bold", margin: "0"}}>Registration Year</p>
+                                <p style={{fontWeight: "bold", margin: "0"}}>{texts[language].regYear}</p>
                                 <p style={{margin: "5px"}}>{studentData.registrationYear}</p>
                                 <hr/>
-                                <p style={{fontWeight: "bold", margin: "0"}}>Department / Program</p>
+                                <p style={{fontWeight: "bold", margin: "0"}}>{texts[language].department}</p>
                                 <p style={{margin: "5px"}}>{studentData.Department}</p>
                                 <hr/>
-                                <p style={{fontWeight: "bold", margin: "0"}}>Registration Type</p>
+                                <p style={{fontWeight: "bold", margin: "0"}}>{texts[language].regType}</p>
                                 <p style={{margin: "5px"}}>{studentData.RegistrationType}</p>
                                 <hr/>
-                                <p style={{fontWeight: "bold", margin: "0"}}>Education Level</p>
+                                <p style={{fontWeight: "bold", margin: "0"}}>{texts[language].eduLevel}</p>
                                 <p style={{margin: "5px"}}>{studentData.EducationLevel}</p>
                                 <hr/>
                             </div>
@@ -133,26 +142,26 @@ const AccountSettings: React.FC = () => {
 
                     <div className={"settings-change"}>
                         <div className="form-container settings-container">
-                            <p className="title">Change Your Account Settings</p>
+                            <p className="title">{texts[language].accSetFormHeading}</p>
                                 <form className="form" onSubmit={handleSubmitPassword}>
                                     <div className="input-group">
-                                        <input style={{marginBottom: "10px"}} type="text" name="username" id="username" placeholder="Current Password"/>
-                                        <input defaultValue={studentPassword} onChange={handleChangePassword} style={{marginBottom: "10px"}} type="text" name="password" id="password" placeholder="New Password"/>
-                                        <button type={'submit'} style={{marginBottom: "20px"}} className="sign settings-change-button" >Update!</button>
+                                        <input style={{marginBottom: "10px"}} type="text" name="username" id="username" placeholder={texts[language].passField1}/>
+                                        <input defaultValue={studentPassword} onChange={handleChangePassword} style={{marginBottom: "10px"}} type="text" name="password" id="password" placeholder={texts[language].passField2}/>
+                                        <button type={'submit'} style={{marginBottom: "20px"}} className="sign settings-change-button" >{texts[language].updateButton}</button>
                                     </div>
                                 </form>
                                 <form className="form" onSubmit={handleSubmitMail}>
                                     <div className="input-group">
-                                        <input style={{marginBottom: "10px"}} type="text" name="username" id="username" placeholder="Current Email"/>
-                                        <input defaultValue={studentMail} onChange={handleChangeMail} style={{marginBottom: "10px"}} type="text" name="mail" id="mail" placeholder="New Email"/>
-                                        <button type={'submit'} style={{marginBottom: "20px"}} className="sign settings-change-button" >Update!</button>
+                                        <input style={{marginBottom: "10px"}} type="text" name="username" id="username" placeholder={texts[language].emailField1}/>
+                                        <input defaultValue={studentMail} onChange={handleChangeMail} style={{marginBottom: "10px"}} type="text" name="mail" id="mail" placeholder={texts[language].emailField2}/>
+                                        <button type={'submit'} style={{marginBottom: "20px"}} className="sign settings-change-button" >{texts[language].updateButton}</button>
                                     </div>
                                 </form>
                                 <form className="form" onSubmit={handleSubmitPhNum}>
                                     <div className="input-group">
-                                        <input style={{marginBottom: "10px"}} type="text" name="username" id="username" placeholder="Current Phone Number"/>
-                                        <input defaultValue={studentPhNum} onChange={handleChangePhNum} style={{marginBottom: "10px"}} type="number" name="phoneNumber" id="phoneNumber" placeholder="New Phone Number"/>
-                                        <button type={'submit'} style={{marginBottom: "20px"}} className="sign settings-change-button" >Update!</button>
+                                        <input style={{marginBottom: "10px"}} type="text" name="username" id="username" placeholder={texts[language].phoneField1}/>
+                                        <input defaultValue={studentPhNum} onChange={handleChangePhNum} style={{marginBottom: "10px"}} type="number" name="phoneNumber" id="phoneNumber" placeholder={texts[language].phoneField2}/>
+                                        <button type={'submit'} style={{marginBottom: "20px"}} className="sign settings-change-button" >{texts[language].updateButton}</button>
                                     </div>
                                 </form>
                         </div>

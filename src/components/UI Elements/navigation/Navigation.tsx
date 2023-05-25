@@ -4,7 +4,12 @@ import image1 from '../../../images/logo.png'
 
 import './navigation.css'
 
-function Navigation() {
+
+interface NavigationProps{
+    field1: string,
+    onClick?: React.MouseEventHandler<HTMLHeadingElement>;
+}
+function Navigation(props:NavigationProps) {
     return (
         <div className={"navigation"}>
             <nav>
@@ -18,7 +23,7 @@ function Navigation() {
                     </div>
 
                     <div className={"navigation-language"}>
-                        <h1>Language</h1>
+                        <h1 style={{letterSpacing: "5px"}} onClick={props.onClick} >{props.field1}</h1>
                     </div>
                 </div>
             </nav>

@@ -5,6 +5,9 @@ import {AuthContext} from "../../authentication/authContext";
 
 import './forgotPassword.css'
 import Navigation from "../UI Elements/navigation/Navigation";
+import {texts} from "../../languages/language";
+import axios from "axios";
+import toast, {Toaster} from "react-hot-toast";
 
 const ForgotPassword: React.FC = () => {
 
@@ -12,7 +15,19 @@ const ForgotPassword: React.FC = () => {
 
     const navigate = useNavigate()
 
-    const [formData, setFormData] = useState({username: '', password: ''})
+    const [language, setLanguage] = useState(localStorage.getItem("language") || "bosnian");
+    const toggleLanguage = () => {
+        const newLanguage = language === "bosnian" ? "english" : "bosnian";
+        setLanguage(newLanguage);
+        localStorage.setItem("language", newLanguage);
+    }
+
+    const [formData, setFormData] = useState({
+        studentId: '',
+        studentMail: '',
+        securityQuestion: '',
+        securityAnswer: ''
+    })
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
@@ -21,56 +36,64 @@ const ForgotPassword: React.FC = () => {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const adminCredentials = {...formData};
-        try {
-            const res = await fetch(  'http://localhost:5000/Password/Forgot', {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(adminCredentials)
-            })
-            if (res.status === 200) {
-                auth.login();
-                navigate('/Student/Dashboard');
-            } else {
-                alert('INVALID CREDENTIALS');
+        const newRecoverRequest = {
+            studentId: formData.studentId,
+            studentMail: formData.studentMail,
+            securityQuestion: formData.securityQuestion,
+            securityAnswer: formData.securityAnswer
+        }
+        const response = await axios.post(`http://localhost:5000/Student/RecoverAccount`, newRecoverRequest, {
+            headers: {
+                'Content-Type': 'application/json',
             }
-        } catch (err) {
-            console.log('invalid credentials')
+        });
+        if(language == 'bosnian'){
+            toast.success('Zahtjev je uspješno poslan u SAO!', {style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                }});
+        }
+        else if(language == 'english'){
+            toast.success('Request successfully sent to SAO!', {style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                }});
         }
     };
 
     return (
         <div>
             <div className={"login-page-main"} style={{minHeight: "100vh"}}>
-                <Navigation/>
+                <Navigation  onClick={toggleLanguage} field1={texts[language].languageSelect}/>
                 <div className={"form-part"} style={{paddingTop: "4rem"}}   >
                     <div className="form-container">
-                        <p className="title">Recover Your Account</p>
-                        <form className="form">
+                        <p className="title">{texts[language].accRecHeading}</p>
+                        <form onSubmit={handleSubmit} className="form">
                             <div className="input-group">
-                                <label htmlFor="username">Student ID</label>
-                                <input type="text" name="username" id="username" placeholder=""/>
+                                <label htmlFor="username">{texts[language].accRecField1}</label>
+                                <input onChange={handleChange} type="text" name="studentId" id="username" placeholder=""/>
                             </div>
                             <div className="input-group">
-                                <label htmlFor="username">Student Mail</label>
-                                <input type="text" name="username" id="username" placeholder=""/>
+                                <label htmlFor="username">{texts[language].accRecField2}</label>
+                                <input onChange={handleChange} type="text" name="studentMail" id="username" placeholder=""/>
                             </div>
                             <div className="input-group">
-                                <label htmlFor="username">Your Security Question</label>
-                                <input type="text" name="username" id="username" placeholder=""/>
+                                <label htmlFor="username">{texts[language].accRecField3}</label>
+                                <input onChange={handleChange} type="text" name="securityQuestion" id="username" placeholder=""/>
                             </div>
                             <div style={{marginBottom: "1rem"}} className="input-group">
-                                <label htmlFor="username">Your Security Answer</label>
-                                <input type="text" name="username" id="username" placeholder=""/>
+                                <label htmlFor="username">{texts[language].accRecField4}</label>
+                                <input onChange={handleChange} type="text" name="securityAnswer" id="username" placeholder=""/>
                             </div>
-                            <button className="sign" onClick={() => navigate('/Student/Dashboard')}>Recover!</button>
+                            <button type={'submit'} className="sign" >{texts[language].recoverButton}</button>
                         </form>
-                        <p className="signup signup2" onClick={() => navigate('/Login/Student')}>Back to Login?</p>
+                        <p className="signup signup2" onClick={() => navigate('/Login/Student')}>{texts[language].backToLogin}</p>
                     </div>
                 </div>
             </div>
+            <Toaster/>
         </div>
     );
 };

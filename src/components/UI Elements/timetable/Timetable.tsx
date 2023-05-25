@@ -3,11 +3,11 @@ import React from "react";
 import './timetable.css'
 
 export interface Course {
-    name: string;
-    venue?: string;
-    start: number; // start time in hours (e.g. 9.5 for 9:30am)
-    end: number; // end time in hours (e.g. 12.5 for 12:30pm)
-    day: string; // day of the week (e.g. "Monday")
+    name: string | undefined;
+    venue?: string | undefined;
+    start: number | undefined; // start time in hours (e.g. 9.5 for 9:30am)
+    end: number | undefined; // end time in hours (e.g. 12.5 for 12:30pm)
+    day: string | undefined; // day of the week (e.g. "Monday")
 }
 
 interface TimetableProps {
@@ -69,7 +69,7 @@ const Timetable: React.FC<TimetableProps> = ({ courses }) => {
                         );
                         return (
                             <td key={`${day}-${hour.start}`} className="timetable-slot">
-                                {slot.course} <br/>
+                                {slot.course} <br/> <br/>
                                 {slot.venue}
                             </td>
                         );

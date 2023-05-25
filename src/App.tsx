@@ -19,6 +19,8 @@ import ProfessorLogin from "./components/login-page/professor/ProfessorLogin";
 import ProfessorDashboard from "./components/professor/professor-dashboard/ProfessorDashboard";
 import ProfessorCourseSchedule from "./components/professor/course-schedule/ProfessorCourseSchedule";
 import ProfessorExamSchedule from "./components/professor/exam-shedule/ProfessorExamSchedule";
+import LanguageContext from './languages/languageContext';
+
 
 function App() {
 
@@ -32,11 +34,14 @@ function App() {
     setIsLoggedIn(false);
   }, []);
 
+  const [language, setLanguage] = useState<'bosnian' | 'english'>('bosnian');
+
   let routes;
 
   if(isLoggedIn){
     routes =(
-            <Routes>
+        <LanguageContext.Provider value={{language, setLanguage}}>
+        <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/Login/Student' element={<StudentLogin/>}/>
                 <Route path='/Credentials/Forgot' element={<ForgotPassword/>}/>
@@ -44,19 +49,21 @@ function App() {
                 <Route path='/Dashboard/Student/:studentId' element={<StudentDashboard/>}/>
                 <Route path='/Settings/Student/:studentId' element={<AccountSettings/>}/>
                 <Route path='/Student/Transcript/:studentId' element={<AcademicRecord/>}/>
-                <Route path='/Student/CourseSchedule' element={<CourseSchedule/>}/>
-                <Route path='/Student/ExamSchedule' element={<ExamSchedule/>}/>
-                <Route path='/Student/GradeDetails' element={<GradeDetails/>}/>
-                <Route path='/Student/Performance' element={<PerformanceStudent/>}/>
-                <Route path='/Student/SCA' element={<CertificateApplication/>}/>
+                <Route path='/Student/CourseSchedule/:studentId' element={<CourseSchedule/>}/>
+                <Route path='/Student/ExamSchedule/:studentId' element={<ExamSchedule/>}/>
+                <Route path='/Student/GradeDetails/:studentId' element={<GradeDetails/>}/>
+                <Route path='/Student/Performance/:studentId' element={<PerformanceStudent/>}/>
+                <Route path='/Student/SCA/:studentId' element={<CertificateApplication/>}/>
                 <Route path='/Professor/Dashboard' element={<ProfessorDashboard/>}/>
                 <Route path='/Professor/CourseSchedule' element={<ProfessorCourseSchedule/>}/>
                 <Route path='/Professor/ExamSchedule' element={<ProfessorExamSchedule/>}/>
             </Routes>
+        </LanguageContext.Provider>
     )
   }
   else{
     routes = (
+            <LanguageContext.Provider value={{language, setLanguage}}>
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/Login/Student' element={<StudentLogin/>}/>
@@ -67,15 +74,16 @@ function App() {
                 <Route path='/Dashboard/Student/:studentId' element={<StudentDashboard/>}/>
                 <Route path='/Settings/Student/:studentId' element={<AccountSettings/>}/>
                 <Route path='/Student/Transcript/:studentId' element={<AcademicRecord/>}/>
-                <Route path='/Student/CourseSchedule' element={<CourseSchedule/>}/>
-                <Route path='/Student/ExamSchedule' element={<ExamSchedule/>}/>
-                <Route path='/Student/GradeDetails' element={<GradeDetails/>}/>
-                <Route path='/Student/Performance' element={<PerformanceStudent/>}/>
-                <Route path='/Student/SCA' element={<CertificateApplication/>}/>
+                <Route path='/Student/CourseSchedule/:studentId' element={<CourseSchedule/>}/>
+                <Route path='/Student/ExamSchedule/:studentId' element={<ExamSchedule/>}/>
+                <Route path='/Student/GradeDetails/:studentId' element={<GradeDetails/>}/>
+                <Route path='/Student/Performance/:studentId' element={<PerformanceStudent/>}/>
+                <Route path='/Student/SCA/:studentId' element={<CertificateApplication/>}/>
                 <Route path='/Professor/Dashboard' element={<ProfessorDashboard/>}/>
                 <Route path='/Professor/CourseSchedule' element={<ProfessorCourseSchedule/>}/>
                 <Route path='/Professor/ExamSchedule' element={<ProfessorExamSchedule/>}/>
             </Routes>
+            </LanguageContext.Provider>
     )
   }
 

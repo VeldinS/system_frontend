@@ -9,6 +9,7 @@ interface NavigationProps{
     field2?: string,
     field3: string,
     field4: string,
+    onClick?: React.MouseEventHandler<HTMLAnchorElement>;
     field5: string,
     field6: string
     navigate1: string,
@@ -66,7 +67,7 @@ function Navigation2(props: NavigationProps) {
                     <div id={"navbar"}>
                         <a onClick={() => navigate(props.navigate2)}>{props.field3}</a>
                         <hr/>
-                        <a>{props.field4}</a>
+                        <a onClick={props.onClick} >{props.field4}</a>
                         <hr/>
                         <a href={props.navigate3}>{props.field5}</a>
                         <hr/>
