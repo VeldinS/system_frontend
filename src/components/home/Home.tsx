@@ -7,7 +7,7 @@ function Home() {
 
     return (
         <div className={"login-page-main"} style={{display: "flex", flexDirection: "row", height: "100vh", margin:"auto"}}>
-            <div style={{margin: "auto"}}>
+            <div className={"home-page-buttons"} style={{margin: "auto"}}>
                 <button onClick={()=> {navigate('/Login/Student')}} className="button1">
                     <span className="button_lg">
                         <span className="button_sl"></span>

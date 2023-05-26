@@ -159,3 +159,44 @@
         opacity: 0;
     }
 }
+
+@media only screen and (max-width: 780px){
+
+    .register-form-div{
+        display: flex;
+        flex-direction: column;
+        margin-right: 3rem;
+    }
+
+    .register-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        width: max-content;
+        background-color: rgba(17, 24, 39, 1);
+        padding: 10px;
+        border-radius: 20px;
+        position: relative;
+        color: rgba(243, 244, 246, 1);
+
+    }
+    .register-form-part1, .register-form-part2{
+        width: 290px;
+        margin: auto;
+    }
+
+    .register-form-part1, .register-form-part2{
+        margin: 1rem;
+    }
+
+    .register-form-part1{
+        margin-bottom: -1rem;
+        padding-bottom: -1rem;
+    }
+
+    .register-form2{
+        width: 90%;
+        margin: 4rem auto auto;
+    }
+
+}

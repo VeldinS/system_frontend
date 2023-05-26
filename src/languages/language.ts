@@ -10,7 +10,7 @@ export const texts:any = {
         card1: 'AKADEMSKI REKORD',
         card2: 'RASPORED KURSEVA',
         card3: 'RASPORED ISPITA',
-        card4: 'PODATCI O OCJENAMA',
+        card4: 'PODACI O OCJENAMA',
         card5: 'PERFORMANSE',
         card6: 'PRIJAVA ZA STUDENTSKI CERTIFIKAT',
         card1Details: "Provjeri svoju detaljnu akademsku evidenciju!",
@@ -55,7 +55,7 @@ export const texts:any = {
         examScheduleHeading: "RASPORED ISPITA",
 
         //GRADE DETAILS
-        gradeDetailsHeading: "PODATCI O OCJENAMA",
+        gradeDetailsHeading: "PODACI O OCJENAMA",
         selectSemester: "Odaberi Semestar",
 
         //CERTIFICATE APPLICATION
@@ -90,7 +90,7 @@ export const texts:any = {
         backToLogin: "Nazad na Login?",
 
         //REGISTER
-        registerHeading: "Registruj Se",
+        registerHeading: "Registruj se",
         registerText1: "Unesite svoje podatke za registraciju profila!",
         registerField1: "Ime",
         registerField2: "Prezime",

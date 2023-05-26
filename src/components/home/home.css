@@ -117,3 +117,20 @@
 .button1:hover .button_lg::after {
     background-color: #fff;
 }
+
+.home-page-buttons{
+    display: flex;
+    flex-direction: row;
+}
+
+@media only screen and (max-width: 780px){
+
+    .home-page-buttons{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+}
+
+

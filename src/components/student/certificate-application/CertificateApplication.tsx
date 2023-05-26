@@ -4,6 +4,7 @@ import Navigation2 from "../../UI Elements/navigation/Navigation2";
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import {texts} from "../../../languages/language";
+import toast, {Toaster} from "react-hot-toast";
 
 function CertificateApplication() {
 
@@ -48,8 +49,20 @@ function CertificateApplication() {
                 'Content-Type': 'application/json',
             }
         });
-        alert('DOCUMENT SUCCESSFULLY SUBMITTED')
-        navigate(`/Dashboard/Student/${studentId}`);
+        if(language == 'bosnian'){
+            toast.success('Podaci uspješno poslani u SAO!', {style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                }});
+        }
+        else if(language == 'english'){
+            toast.success('Data successfully sent to SAO!', {style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                }});
+        }
     };
 
     return (
@@ -96,6 +109,7 @@ function CertificateApplication() {
                     </div>
                 </div>
             </div>
+            <Toaster/>
         </div>
     );
 }

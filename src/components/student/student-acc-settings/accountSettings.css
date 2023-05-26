@@ -48,3 +48,63 @@
     width: 40%;
     margin: auto auto auto 9rem;
 }
+
+@media only screen and (max-width: 780px) {
+
+    .settings-page{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 8rem;
+        padding-bottom: 2rem;
+    }
+
+    .account-details{
+        width: 290px;
+        border-radius: 0.75rem;
+        background-color: rgba(17, 24, 39, 1);
+        padding: 1rem 2rem;
+        color: rgba(243, 244, 246, 1);
+        margin: auto;
+        height: 550px;
+        margin-bottom: 1rem;
+    }
+
+    .account-details-row{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .account-details-image{
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        margin-right: 4rem;
+    }
+
+    .settings-change{
+        margin: auto;
+    }
+
+    .settings-container{
+        padding-top: 1rem;
+        padding-bottom: 3rem;
+        width: 290px;
+        height: 550px;
+        margin: auto;
+
+    }
+
+
+    .settings-change-button{
+        width: 50%;
+        margin: auto;
+    }
+
+
+
+}

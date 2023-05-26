@@ -50,7 +50,7 @@ function AcademicRecord() {
 
                     <div className={"transcript-details"}>
                         <TranscriptSemester
-                            semester={'Fall Semester - 2022'}
+                            semester={'Spring Semester - 2021'}
                             field1={texts[language].courseCode} field1_1={studentData.takenCourse1} field1_2={studentData.takenCourse2} field1_3={studentData.takenCourse3} field1_4={studentData.takenCourse4} field1_5={studentData.takenCourse5}
                             field2={texts[language].courseName} field2_1={studentData.takenCourseName1} field2_2={studentData.takenCourseName2} field2_3={studentData.takenCourseName3} field2_4={studentData.takenCourseName4} field2_5={studentData.takenCourseName5}
                             field3={texts[language].courseGrade} field3_1={studentData.takenCourse1FinalLetterGrade} field3_2={studentData.takenCourse2FinalLetterGrade} field3_3={studentData.takenCourse3FinalLetterGrade} field3_4={studentData.takenCourse4FinalLetterGrade} field3_5={studentData.takenCourse5FinalLetterGrade}
@@ -58,7 +58,7 @@ function AcademicRecord() {
                         />
 
                         <TranscriptSemester
-                            semester={'Spring Semester - 2022'}
+                            semester={'Fall Semester - 2021'}
                            field1={texts[language].courseCode} field1_1={studentData.takenCourse6} field1_2={studentData.takenCourse7} field1_3={studentData.takenCourse8} field1_4={studentData.takenCourse9} field1_5={studentData.takenCourse10}
                            field2={texts[language].courseName} field2_1={studentData.takenCourseName6} field2_2={studentData.takenCourseName7} field2_3={studentData.takenCourseName8} field2_4={studentData.takenCourseName9} field2_5={studentData.takenCourseName10}
                            field3={texts[language].courseGrade}field3_1={studentData.takenCourse6FinalLetterGrade} field3_2={studentData.takenCourse7FinalLetterGrade} field3_3={studentData.takenCourse8FinalLetterGrade} field3_4={studentData.takenCourse9FinalLetterGrade} field3_5={studentData.takenCourse10FinalLetterGrade}
@@ -66,7 +66,7 @@ function AcademicRecord() {
                         />
 
                         <TranscriptSemester
-                            semester={'Fall Semester - 2021'}
+                            semester={'Spring Semester - 2022'}
                             field1={texts[language].courseCode} field1_1={studentData.takenCourse11} field1_2={studentData.takenCourse12} field1_3={studentData.takenCourse13} field1_4={studentData.takenCourse14} field1_5={studentData.takenCourse15}
                             field2={texts[language].courseName} field2_1={studentData.takenCourseName11} field2_2={studentData.takenCourseName12} field2_3={studentData.takenCourseName13} field2_4={studentData.takenCourseName14} field2_5={studentData.takenCourseName15}
                             field3={texts[language].courseGrade}field3_1={studentData.takenCourse11FinalLetterGrade} field3_2={studentData.takenCourse12FinalLetterGrade} field3_3={studentData.takenCourse13FinalLetterGrade} field3_4={studentData.takenCourse14FinalLetterGrade} field3_5={studentData.takenCourse15FinalLetterGrade}
@@ -74,7 +74,7 @@ function AcademicRecord() {
                         />
 
                         <TranscriptSemester
-                            semester={'Spring Semester - 2021'}
+                            semester={'Fall Semester - 2022'}
                             field1={texts[language].courseCode} field1_1={studentData.takenCourse16} field1_2={studentData.takenCourse17} field1_3={studentData.takenCourse18} field1_4={studentData.takenCourse19} field1_5={studentData.takenCourse20}
                             field2={texts[language].courseName} field2_1={studentData.takenCourseName16} field2_2={studentData.takenCourseName17} field2_3={studentData.takenCourseName18} field2_4={studentData.takenCourseName19} field2_5={studentData.takenCourseName20}
                             field3={texts[language].courseGrade} field3_1={studentData.takenCourse16FinalLetterGrade} field3_2={studentData.takenCourse17FinalLetterGrade} field3_3={studentData.takenCourse18FinalLetterGrade} field3_4={studentData.takenCourse19FinalLetterGrade} field3_5={studentData.takenCourse20FinalLetterGrade}

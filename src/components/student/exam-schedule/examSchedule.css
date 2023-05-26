@@ -22,3 +22,16 @@
     justify-content: center;
     margin-bottom: 3rem;
 }
+
+@media only screen and (max-width: 780px) {
+
+    .dashboard-buttons{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        padding: 0;
+
+    }
+
+
+}

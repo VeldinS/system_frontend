@@ -45,7 +45,8 @@ function App() {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/Login/Student' element={<StudentLogin/>}/>
                 <Route path='/Credentials/Forgot' element={<ForgotPassword/>}/>
-                <Route path='/Login/Admin' element={<AdminLogin/>}/>
+                <Route path='/Login/Professor' element={<ProfessorLogin/>}/>
+                <Route path='/Login/SAO' element={<AdminLogin/>}/>
                 <Route path='/Dashboard/Student/:studentId' element={<StudentDashboard/>}/>
                 <Route path='/Settings/Student/:studentId' element={<AccountSettings/>}/>
                 <Route path='/Student/Transcript/:studentId' element={<AcademicRecord/>}/>

@@ -1,7 +1,7 @@
 import React from 'react';
 import image1 from '../../../images/logo.png'
 import './navigation2.css'
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 
 interface NavigationProps{
@@ -19,6 +19,8 @@ interface NavigationProps{
 }
 
 function Navigation2(props: NavigationProps) {
+    const {studentId} = useParams()
+
 
     const navigate = useNavigate()
 
@@ -45,7 +47,7 @@ function Navigation2(props: NavigationProps) {
         <div className={"navigation"}>
             <nav>
                 <div className={"navigation-bar"}>
-                    <div className={"navigation-logo"}>
+                    <div onClick={() => navigate(`/Dashboard/Student/${studentId}`)} className={"navigation-logo"}>
                         <img src={image1} alt={''}/>
                     </div>
 

@@ -19,7 +19,7 @@ function StudentDashboard() {
 
     return (
         <div>
-            <div className={"student-dashboard-main"} style={{minHeight: "100vh"}}>
+            <div className={"student-dashboard-main"}>
                 <Navigation2 field1={texts[language].heading} field3={texts[language].navField1}
                              field4={texts[language].navField2} onClick={toggleLanguage} field5={texts[language].navField3} field6={texts[language].navField4}
                              navigate1={''} navigate2={`/Settings/Student/${studentId}`} navigate3={'https://www.ius.edu.ba/en/contact'} navigate4={'/Login/Student'}

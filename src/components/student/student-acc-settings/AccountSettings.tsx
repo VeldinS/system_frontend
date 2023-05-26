@@ -8,6 +8,7 @@ import './accountSettings.css'
 import image1 from '../../../images/dummy.jpg'
 
 import Navigation2 from "../../UI Elements/navigation/Navigation2";
+import toast, {Toaster} from "react-hot-toast";
 
 interface Student {
     _id: any;
@@ -60,8 +61,20 @@ const AccountSettings: React.FC = () => {
                 'Content-Type': 'application/json',
             }
         });
-        alert('PASSWORD SUCCESSFULLY UPDATED!')
-        navigate(`/Dashboard/Student/${studentId}`);
+        if(language == 'bosnian'){
+            toast.success('Lozinka uspješno ažurirana!', {style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                }});
+        }
+        else if(language == 'english'){
+            toast.success('Password successfully updated!', {style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                }});
+        }
     };
 
     //MAIL CHANGE
@@ -78,8 +91,20 @@ const AccountSettings: React.FC = () => {
                 'Content-Type': 'application/json',
             }
         });
-        alert('MAIL SUCCESSFULLY UPDATED!')
-        navigate(`/Dashboard/Student/${studentId}`);
+        if(language == 'bosnian'){
+            toast.success('Mail uspješno ažuriran!', {style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                }});
+        }
+        else if(language == 'english'){
+            toast.success('Mail successfully updated!', {style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                }});
+        }
     };
 
     //PHONE NUMBER CHANGE
@@ -96,13 +121,25 @@ const AccountSettings: React.FC = () => {
                 'Content-Type': 'application/json',
             }
         });
-        alert('PHONE NUMBER SUCCESSFULLY UPDATED!')
-        navigate(`/Settings/Student/${studentId}`);
+        if(language == 'bosnian'){
+            toast.success('Broj telefona uspješno ažuriran!', {style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                }});
+        }
+        else if(language == 'english'){
+            toast.success('Phone number successfully updated!', {style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                }});
+        }
     };
 
     return (
         <div>
-            <div className={"login-page-main"} style={{minHeight: "100vh"}}>
+            <div className={"login-page-main accSetPage"} style={{minHeight: "100vh"}}>
                 <Navigation2 field1={texts[language].accSetHeading} field2={texts[language].backToDash} field3={texts[language].dashboard}
                              field4={texts[language].navField2} onClick={toggleLanguage} field5={texts[language].navField3} field6={texts[language].navField4}
                              navigate1={`/Dashboard/Student/${studentId}`} navigate2={`/Dashboard/Student/${studentId}`} navigate3={'https://www.ius.edu.ba/en/contact'} navigate4={'/Login/Student'}
@@ -169,6 +206,7 @@ const AccountSettings: React.FC = () => {
                 </div>
                 )}
             </div>
+            <Toaster/>
         </div>
     );
 };

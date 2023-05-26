@@ -145,3 +145,159 @@
     cursor: pointer;
 }
 /************************************/
+
+@media only screen and (max-width: 780px) {
+
+    .navigation{
+        position: absolute;
+        width: 100%;
+    }
+
+    .navigation-bar{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        padding-top: 1rem;
+        align-items: center;
+    }
+
+    .navigation-logo{
+        width: 25%;
+        padding-left: 0.5rem;
+    }
+
+    .navigation-logo > img {
+        width: 80px;
+        height: auto;
+        filter: brightness(80%);
+    }
+
+    .navigation2-heading{
+        width: 50%;
+
+    }
+
+    .navigation2-heading > h1 {
+        color: whitesmoke;
+        letter-spacing: 5px;
+        font-size: 130%;
+        text-align: center;
+
+    }
+
+    .back-to-dashboard{
+        display: none;
+        width: 0%;
+    }
+
+    .back-to-dashboard p{
+        color: white;
+        font-weight: bold;
+        letter-spacing: 2px;
+        transition: 0.7s;
+    }
+
+    .back-to-dashboard p:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: 0.7s ease-in-out;
+    }
+
+    .navigation-menu{
+        padding-left: 2rem;
+        padding-right: 1rem;
+    }
+
+    /*Menu button*/
+    #checkbox {
+        display: none;
+    }
+
+    .toggle {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition-duration: 1s;
+        z-index: 30;
+    }
+
+    .bars {
+        width: 100%;
+        height: 4px;
+        background-color: rgb(216, 192, 255);
+        border-radius: 4px;
+    }
+
+    #bar2 {
+        transition-duration: .8s;
+    }
+
+    #bar1,#bar3 {
+        width: 70%;
+    }
+
+    #checkbox:checked + .toggle .bars {
+        position: absolute;
+        transition-duration: .5s;
+    }
+
+    #checkbox:checked + .toggle #bar2 {
+        transform: scaleX(0);
+        transition-duration: .5s;
+    }
+
+    #checkbox:checked + .toggle #bar1 {
+        width: 100%;
+        transform: rotate(45deg);
+        transition-duration: .5s;
+    }
+
+    #checkbox:checked + .toggle #bar3 {
+        width: 100%;
+        transform: rotate(-45deg);
+        transition-duration: .5s;
+    }
+
+    #checkbox:checked + .toggle {
+        transition-duration: .5s;
+        transform: rotate(180deg);
+    }
+
+    #navbar{
+        position: fixed;
+        top: 1.2rem;
+        right: 2.2rem;
+        border: 0.1rem solid antiquewhite;
+        padding: 5rem 1.5rem 1rem 1rem;
+        border-radius: 1rem;
+        z-index: 4;
+        transform: scale(0);
+        opacity: 0;
+        background: #030712;
+    }
+
+
+    #navbar a {
+        display: block;
+        padding: 0.5rem 7rem 0.5rem 1rem;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-size: 1.25rem;
+        border-radius: 0.5rem;
+        transition: 1s;
+    }
+
+    #navbar a:hover{
+        transform: scale(1.1);
+        transition: all 1s ease;
+        cursor: pointer;
+    }
+
+}

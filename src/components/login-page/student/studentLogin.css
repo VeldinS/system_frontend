@@ -8,6 +8,10 @@
     margin: auto;
 }
 
+.form-part{
+    padding-top: 4rem;
+}
+
 .form-container {
     width: 320px;
     border-radius: 0.75rem;
@@ -144,4 +148,16 @@
     color: white;
     transition: 1s;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 780px) {
+
+    .form-container{
+        width: 200px;
+    }
+
+    .form-part{
+        padding-top: 0rem;
+    }
+
 }

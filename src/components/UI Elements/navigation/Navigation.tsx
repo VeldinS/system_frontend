@@ -3,6 +3,7 @@ import React from 'react';
 import image1 from '../../../images/logo.png'
 
 import './navigation.css'
+import {useNavigate} from "react-router-dom";
 
 
 interface NavigationProps{
@@ -10,11 +11,13 @@ interface NavigationProps{
     onClick?: React.MouseEventHandler<HTMLHeadingElement>;
 }
 function Navigation(props:NavigationProps) {
+
+    const navigate = useNavigate()
     return (
         <div className={"navigation"}>
             <nav>
                 <div className={"navigation-bar"}>
-                    <div className={"navigation-logo"}>
+                    <div onClick={() => navigate('/')} className={"navigation-logo"}>
                         <img src={image1} alt={''}/>
                     </div>
 

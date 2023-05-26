@@ -77,8 +77,8 @@ const Register: React.FC = () => {
         <div>
             <div className={"login-page-main"} style={{minHeight: "100vh"}}>
                 <Navigation onClick={toggleLanguage} field1={texts[language].languageSelect}/>
-                <div className={"form-part"} style={{paddingTop: "4rem"}}>
-                    <form onSubmit={handleSubmit} className="register-form">
+                <div className={"form-part registration-form-part"} style={{paddingTop: "4rem"}}>
+                    <form onSubmit={handleSubmit} className="register-form register-form2">
                         <p className="register-title">{texts[language].registerHeading}</p>
                         <p className="register-message">{texts[language].registerText1}</p>
                         <div className={"register-form-div"}>

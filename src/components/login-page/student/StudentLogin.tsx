@@ -47,7 +47,7 @@ const StudentLogin: React.FC = () => {
                 navigate(`/Dashboard/Student/${studentId}`);
             } else {
                 if(language == 'bosnian'){
-                    toast.error('Podatci za prijavi nisu validni!', {style: {
+                    toast.error('Podaci za prijavi nisu validni!', {style: {
                             borderRadius: '10px',
                             background: '#333',
                             color: '#fff',
@@ -70,7 +70,7 @@ const StudentLogin: React.FC = () => {
         <div>
             <div className={"login-page-main"} style={{minHeight: "100vh"}}>
                 <Navigation onClick={toggleLanguage} field1={texts[language].languageSelect}/>
-                <div className={"form-part"} style={{paddingTop: "4rem"}}   >
+                <div className={"form-part"}>
                     <div className="form-container">
                         <p className="title">Login</p>
                         <form className="form" onSubmit={handleSubmit}>
