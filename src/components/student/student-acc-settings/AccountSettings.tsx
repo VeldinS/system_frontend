@@ -41,7 +41,7 @@ const AccountSettings: React.FC = () => {
 
     //FETCH STUDENT DATA
     useEffect(() => {
-        fetch(   `http://localhost:5000/Student/${studentId}`)
+        fetch(   `https://sysbackend-jhed.onrender.com/Student/${studentId}`)
             .then((res) => res.json())
             .then((data) => setStudentData(data as Student))
     }, [studentId]);
@@ -56,7 +56,7 @@ const AccountSettings: React.FC = () => {
         event.preventDefault();
         const newPassword = studentPassword
 
-        const response = await axios.patch(`http://localhost:5000/Student/UpdatePassword/${studentId}`, newPassword, {
+        const response = await axios.patch(`https://sysbackend-jhed.onrender.com/Student/UpdatePassword/${studentId}`, newPassword, {
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -86,7 +86,7 @@ const AccountSettings: React.FC = () => {
     const handleSubmitMail = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const newMail = studentMail
-        const response = await axios.patch(`http://localhost:5000/Student/UpdateMail/${studentId}`, newMail, {
+        const response = await axios.patch(`https://sysbackend-jhed.onrender.com/Student/UpdateMail/${studentId}`, newMail, {
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -116,7 +116,7 @@ const AccountSettings: React.FC = () => {
     const handleSubmitPhNum = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const newPhNum = studentPhNum
-        const response = await axios.patch(`http://localhost:5000/Student/UpdatePhNum/${studentId}`, newPhNum, {
+        const response = await axios.patch(`https://sysbackend-jhed.onrender.com/Student/UpdatePhNum/${studentId}`, newPhNum, {
             headers: {
                 'Content-Type': 'application/json',
             }

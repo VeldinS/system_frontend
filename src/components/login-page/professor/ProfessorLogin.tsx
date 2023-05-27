@@ -2,8 +2,16 @@ import React, {useContext, useState} from 'react';
 import {AuthContext} from "../../../authentication/authContext";
 import {useNavigate} from "react-router-dom";
 import Navigation from "../../UI Elements/navigation/Navigation";
+import {texts} from "../../../languages/language";
 
 function ProfessorLogin() {
+
+    const [language, setLanguage] = useState(localStorage.getItem("language") || "bosnian");
+    const toggleLanguage = () => {
+        const newLanguage = language === "bosnian" ? "english" : "bosnian";
+        setLanguage(newLanguage);
+        localStorage.setItem("language", newLanguage);
+    }
 
     const auth = useContext(AuthContext)
     const navigate = useNavigate()
@@ -18,7 +26,7 @@ function ProfessorLogin() {
         event.preventDefault();
         const adminCredentials = {...formData};
         try {
-            const res = await fetch(  'http://localhost:5000/Login/Admin', {
+            const res = await fetch(  'https://sysbackend-jhed.onrender.com/Login/Admin', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -39,7 +47,7 @@ function ProfessorLogin() {
     return (
         <div>
             <div className={"login-page-main"} style={{minHeight: "100vh"}}>
-                <Navigation/>
+                <Navigation onClick={toggleLanguage} field1={texts[language].languageSelect}/>
                 <div className={"form-part"} style={{paddingTop: "4rem"}}   >
                     <div className="form-container">
                         <p className="title">Professor Login</p>

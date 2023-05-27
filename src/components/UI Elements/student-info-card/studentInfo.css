@@ -23,3 +23,17 @@
     border-radius: 50%;
     margin-right: 4rem;
 }
+
+@media only screen and (max-width: 780px) {
+
+    .student-details-transcript{
+        width: 290px;
+        border-radius: 0.75rem;
+        background-color: rgba(17, 24, 39, 1);
+        padding: 1rem 2rem;
+        color: rgba(243, 244, 246, 1);
+        margin: 5rem auto 1rem;
+        height: 580px
+    }
+
+}

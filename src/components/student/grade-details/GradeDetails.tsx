@@ -22,7 +22,7 @@ function GradeDetails() {
 
     //FETCH STUDENT DATA
     useEffect(() => {
-        fetch(   `http://localhost:5000/Student/${studentId}`)
+        fetch(   `https://sysbackend-jhed.onrender.com/Student/${studentId}`)
             .then((res) => res.json())
             .then((data) => setStudentData(data as Student))
     }, [studentId]);

@@ -33,7 +33,7 @@ const StudentLogin: React.FC = () => {
         event.preventDefault();
         const studentCredentials = {...formData};
         try {
-            const res = await fetch(  'http://localhost:5000/Login/Student', {
+            const res = await fetch(  'https://sysbackend-jhed.onrender.com/Login/Student', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

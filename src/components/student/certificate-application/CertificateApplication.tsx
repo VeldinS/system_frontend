@@ -44,7 +44,7 @@ function CertificateApplication() {
             docCopies: formData.docCopies,
             docReason: formData.docReason
         }
-        const response = await axios.post(`http://localhost:5000/Student/SCA/${studentId}`, newDocument, {
+        const response = await axios.post(`https://sysbackend-jhed.onrender.com/Student/SCA/${studentId}`, newDocument, {
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -78,7 +78,7 @@ function CertificateApplication() {
                         <p className="title">{texts[language].scaFormHeading}</p>
                         <form onSubmit={handleSubmit} className="form">
                             <div className={"certificate-select-div"}>
-                                <div style={{display:"flex", flexDirection:"column", alignItems:"center", width:"50%", margin:"auto"}} className="input-group">
+                                <div style={{display:"flex", flexDirection:"column", alignItems:"center", width:"100%", margin:"auto"}} className="input-group">
                                     <label>{texts[language].scaSelectField1}</label>
                                     <select value={formData.docType} onChange={handleChangeSelect} className={"certificate-select"} name="docType">
                                         <option value=""></option>
@@ -86,7 +86,7 @@ function CertificateApplication() {
                                         <option value={'Signed Document'}>{texts[language].scaSelectField1_2}</option>
                                     </select>
                                 </div>
-                                <div style={{display:"flex", flexDirection:"column", alignItems:"center", width:"50%", margin:"auto"}} className="input-group">
+                                <div style={{display:"flex", flexDirection:"column", alignItems:"center", width:"100%", margin:"auto"}} className="input-group">
                                     <label>{texts[language].scaSelectField2}</label>
                                     <select className={"certificate-select"} value={formData.docLanguage} onChange={handleChangeSelect} name="docLanguage">
                                         <option value=""></option>
@@ -104,7 +104,7 @@ function CertificateApplication() {
                                 <label>{texts[language].scaInputField2}</label>
                                 <input style={{marginBottom: "30px"}} value={formData.docReason} onChange={handleChange} type="text" name="docReason" id="docReason" placeholder={texts[language].scaInputField2_1}/>
                             </div>
-                            <button className="sign settings-change-button" >{texts[language].submitButton}</button>
+                            <button className="sign settings-change-button certificateApplication-button" >{texts[language].submitButton}</button>
                         </form>
                     </div>
                 </div>

@@ -40,4 +40,33 @@
         margin-right: 3rem;
     }
 
+    .certificate-container{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        margin-top: 5rem;
+        width: 300px;
+        height: max-content;
+    }
+
+    .certificate-select-div{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .certificate-select{
+        height: 2rem;
+        width: 100%;
+        border-radius: 10px;
+        font-size: 110%;
+        text-align: center;
+        background-color: darkgrey;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+    }
+
+    .certificateApplication-button{
+        width: 60%;
+        margin: auto;
+    }
+
 }

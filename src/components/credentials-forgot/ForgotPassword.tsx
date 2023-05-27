@@ -42,7 +42,7 @@ const ForgotPassword: React.FC = () => {
             securityQuestion: formData.securityQuestion,
             securityAnswer: formData.securityAnswer
         }
-        const response = await axios.post(`http://localhost:5000/Student/RecoverAccount`, newRecoverRequest, {
+        const response = await axios.post(`https://sysbackend-jhed.onrender.com/Student/RecoverAccount`, newRecoverRequest, {
             headers: {
                 'Content-Type': 'application/json',
             }

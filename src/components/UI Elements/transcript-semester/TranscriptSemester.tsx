@@ -34,37 +34,37 @@ function TranscriptSemester(props:TranscriptSemesterProps) {
             <div className={"transcript-semester"}>
                 <h3 style={{color: "black"}}>{props.semester}</h3>
                 <div className={"semester-field1"}>
-                    <div style={{borderRight: "3px solid black", width: "20%"}} className={"semester-field2"}>
-                        <p style={{fontWeight: "bold", textAlign:"center"}}>{props.field1}</p>
-                        <p>{props.field1_1}</p>
-                        <p>{props.field1_2}</p>
-                        <p>{props.field1_3}</p>
-                        <p>{props.field1_4}</p>
-                        <p>{props.field1_5}</p>
+                    <div style={{borderRight: "3px solid black", width: "25%"}} className={"semester-field2"}>
+                        <p style={{fontWeight: "bold", textAlign:"center", height: "20%"}}>{props.field1}</p>
+                        <p style={{height: "20%"}}>{props.field1_1}</p>
+                        <p style={{height: "20%"}}>{props.field1_2}</p>
+                        <p style={{height: "20%"}}>{props.field1_3}</p>
+                        <p style={{height: "20%"}}>{props.field1_4}</p>
+                        <p style={{height: "20%"}}>{props.field1_5}</p>
                     </div>
-                    <div style={{borderRight: "3px solid black", width: "35%"}} className={"semester-field2"}>
-                        <p style={{fontWeight: "bold", textAlign:"center"}}>{props.field2}</p>
-                        <p>{props.field2_1}</p>
-                        <p>{props.field2_2}</p>
-                        <p>{props.field2_3}</p>
-                        <p>{props.field2_4}</p>
-                        <p>{props.field2_5}</p>
+                    <div style={{borderRight: "3px solid black", width: "30%"}} className={"semester-field2"}>
+                        <p style={{fontWeight: "bold", textAlign:"center",height: "20%"}}>{props.field2}</p>
+                        <p style={{height: "20%"}}>{props.field2_1}</p>
+                        <p style={{height: "20%"}}>{props.field2_2}</p>
+                        <p style={{height: "20%"}}>{props.field2_3}</p>
+                        <p style={{height: "20%"}}>{props.field2_4}</p>
+                        <p style={{height: "20%"}}>{props.field2_5}</p>
                     </div>
                     <div style={{borderRight: "3px solid black", width: "20%"}} className={"semester-field2"}>
-                        <p style={{fontWeight: "bold", textAlign:"center"}}>{props.field3}</p>
-                        <p>{props.field3_1}</p>
-                        <p>{props.field3_2}</p>
-                        <p>{props.field3_3}</p>
-                        <p>{props.field3_4}</p>
-                        <p>{props.field3_5}</p>
+                        <p style={{fontWeight: "bold", textAlign:"center",height: "20%"}}>{props.field3}</p>
+                        <p style={{height: "20%"}}>{props.field3_1}</p>
+                        <p style={{height: "20%"}}>{props.field3_2}</p>
+                        <p style={{height: "20%"}}>{props.field3_3}</p>
+                        <p style={{height: "20%"}}>{props.field3_4}</p>
+                        <p style={{height: "20%"}}>{props.field3_5}</p>
                     </div>
                     <div className={"semester-field2"}>
-                        <p style={{fontWeight: "bold", textAlign:"center", width: "20%"}}>{props.field4}</p>
-                        <p>{props.field4_1}</p>
-                        <p>{props.field4_2}</p>
-                        <p>{props.field4_3}</p>
-                        <p>{props.field4_4}</p>
-                        <p>{props.field4_5}</p>
+                        <p style={{fontWeight: "bold", textAlign:"center", width: "20%",height: "20%"}}>{props.field4}</p>
+                        <p style={{height: "20%"}}>{props.field4_1}</p>
+                        <p style={{height: "20%"}}>{props.field4_2}</p>
+                        <p style={{height: "20%"}}>{props.field4_3}</p>
+                        <p style={{height: "20%"}}>{props.field4_4}</p>
+                        <p style={{height: "20%"}}>{props.field4_5}</p>
                     </div>
                 </div>
             </div>

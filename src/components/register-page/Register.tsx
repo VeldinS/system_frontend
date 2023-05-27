@@ -52,7 +52,7 @@ const Register: React.FC = () => {
             securityQuestion: formData.securityQuestion,
             securityAnswer: formData.securityAnswer
         }
-        const response = await axios.post(`http://localhost:5000/Student/Register`, newRegister, {
+        const response = await axios.post(`https://sysbackend-jhed.onrender.com/Student/Register`, newRegister, {
             headers: {
                 'Content-Type': 'application/json',
             }

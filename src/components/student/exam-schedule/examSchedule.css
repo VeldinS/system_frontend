@@ -25,13 +25,27 @@
 
 @media only screen and (max-width: 780px) {
 
+    .examSchedule-main{
+        height: 150vh;
+    }
+
     .dashboard-buttons{
         display: flex;
         flex-direction: column;
         margin: auto;
         padding: 0;
-
     }
+
+    .exam-page-cards{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .exam-page-card{
+        margin: auto;
+    }
+
+
 
 
 }

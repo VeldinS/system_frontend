@@ -48,3 +48,11 @@
 .course:hover .course-details-back{
     display: flex;
 }
+
+@media only screen and (max-width: 780px) {
+
+    .assessment > p{
+        font-size: 80%;
+    }
+
+}

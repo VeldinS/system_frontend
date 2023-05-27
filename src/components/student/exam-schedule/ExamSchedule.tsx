@@ -21,14 +21,14 @@ function ExamSchedule() {
 
     //FETCH STUDENT DATA
     useEffect(() => {
-        fetch(   `http://localhost:5000/Student/${studentId}`)
+        fetch(   `https://sysbackend-jhed.onrender.com/Student/${studentId}`)
             .then((res) => res.json())
             .then((data) => setStudentData(data as Student))
     }, [studentId]);
 
     return (
         <div>
-            <div className={"login-page-main"} style={{minHeight: "100vh"}}>
+            <div className={"login-page-main examSchedule-main"} style={{minHeight: "100vh"}}>
                 <Navigation2 field1={texts[language].examScheduleHeading} field2={texts[language].backToDash} field3={texts[language].dashboard}
                              field4={texts[language].navField2} onClick={toggleLanguage} field5={texts[language].navField3} field6={texts[language].navField4}
                              navigate1={`/Dashboard/Student/${studentId}`} navigate2={`/Dashboard/Student/${studentId}`} navigate3={'https://www.ius.edu.ba/en/contact'} navigate4={'/Login/Student'}
