@@ -356,3 +356,47 @@ export interface Student {
     takenCourse20ClassAverage: number
 }
 
+export interface Professor{
+
+    _id: any;
+    name:string,
+    surname:string,
+    mail:string,
+    password:string,
+    phone:number,
+    department:string,
+
+    currentCourse1: string,
+    currentCourseName1: string,
+    currentCourse2: string,
+    currentCourseName2: string,
+    currentCourse3: string,
+    currentCourseName3: string,
+    currentCourse4: string,
+    currentCourseName4: string,
+    currentCourse5: string,
+    currentCourseName5: string,
+
+    currentExam1: string,
+    currentCourse1Day:string,
+    currentCourse1Time:number,
+    currentCourse1TimeEnd:number,
+    currentExam2: string,
+    currentCourse2Day:string,
+    currentCourse2Time:number,
+    currentCourse2TimeEnd:number,
+    currentExam3: string,
+    currentCourse3Day:string,
+    currentCourse3Time:number,
+    currentCourse3TimeEnd:number,
+    currentExam4: string
+    currentCourse4Day:string,
+    currentCourse4Time:number,
+    currentCourse4TimeEnd:number,
+    currentExam5: string
+    currentCourse5Day:string,
+    currentCourse5Time:number,
+    currentCourse5TimeEnd:number,
+
+}
+

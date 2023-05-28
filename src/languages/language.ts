@@ -101,7 +101,21 @@ export const texts:any = {
         registerField7: "Odsjek",
         registerField8: "SigurnosnoPitanje",
         registerField9: "Sigurnosni Odgovor",
-        registerText2: "Već imate profil?"
+        registerText2: "Već imate profil?",
+
+
+
+
+        //PROFESSOR
+        loginHeading: "Login za Profesore",
+        loginAsStudent: "Logujte se kao student?",
+        dashboardHeading: "KONTROLNA TABLA ZA PROFESORE",
+        performanceButton1: "PEFORMANSE",
+        performanceButton: "Provjeri performanse za studente, kurseve, semestre...",
+        navBut1: "Raspored Kurseva",
+        navBut2: "Raspored Ispita",
+        navBut3: "Performanse",
+        navBut4: "Kontrolna Tabla",
 
     },
 
@@ -207,6 +221,19 @@ export const texts:any = {
         registerField7: "Department",
         registerField8: "SecurityQuestion",
         registerField9: "SecurityAnswer",
-        registerText2: "Already have an account?"
+        registerText2: "Already have an account?",
+
+
+
+        //PROFESSOR
+        loginHeading: "Professor Login",
+        loginAsStudent: "Login as student?",
+        dashboardHeading: "PROFESSOR DASHBOARD",
+        performanceButton1: "PEFORMANCE",
+        performanceButton: "Test performance for students, courses, semesters...",
+        navBut1: "Course Schedule",
+        navBut2: "Exam Schedule",
+        navBut3: "Performance",
+        navBut4: "Dashboard",
     }
 };

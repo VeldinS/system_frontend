@@ -16,9 +16,11 @@ interface TimetableProps {
 
 const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 const HOURS = [
-    { start: 9, end: 12 },
-    { start: 12, end: 15 },
-    { start: 15, end: 18 },
+    { start: 9, end: 11 },
+    { start: 11, end: 13 },
+    { start: 13, end: 15 },
+    { start: 15, end: 17 },
+    { start: 17, end: 19 },
 ];
 
 

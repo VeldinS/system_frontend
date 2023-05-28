@@ -20,6 +20,7 @@ import ProfessorDashboard from "./components/professor/professor-dashboard/Profe
 import ProfessorCourseSchedule from "./components/professor/course-schedule/ProfessorCourseSchedule";
 import ProfessorExamSchedule from "./components/professor/exam-shedule/ProfessorExamSchedule";
 import LanguageContext from './languages/languageContext';
+import PATProfessor from "./components/professor/PAT/PATProfessor";
 
 
 function App() {
@@ -55,9 +56,10 @@ function App() {
                 <Route path='/Student/GradeDetails/:studentId' element={<GradeDetails/>}/>
                 <Route path='/Student/Performance/:studentId' element={<PerformanceStudent/>}/>
                 <Route path='/Student/SCA/:studentId' element={<CertificateApplication/>}/>
-                <Route path='/Professor/Dashboard' element={<ProfessorDashboard/>}/>
-                <Route path='/Professor/CourseSchedule' element={<ProfessorCourseSchedule/>}/>
-                <Route path='/Professor/ExamSchedule' element={<ProfessorExamSchedule/>}/>
+                <Route path='/Dashboard/Professor/:professorId' element={<ProfessorDashboard/>}/>
+                <Route path='/Professor/CourseSchedule/:professorId' element={<ProfessorCourseSchedule/>}/>
+                <Route path='/Professor/ExamSchedule/:professorId' element={<ProfessorExamSchedule/>}/>
+                <Route path='/Professor/PAT/:professorId' element={<PATProfessor/>}/>
             </Routes>
         </LanguageContext.Provider>
     )
@@ -80,9 +82,10 @@ function App() {
                 <Route path='/Student/GradeDetails/:studentId' element={<GradeDetails/>}/>
                 <Route path='/Student/Performance/:studentId' element={<PerformanceStudent/>}/>
                 <Route path='/Student/SCA/:studentId' element={<CertificateApplication/>}/>
-                <Route path='/Professor/Dashboard' element={<ProfessorDashboard/>}/>
-                <Route path='/Professor/CourseSchedule' element={<ProfessorCourseSchedule/>}/>
-                <Route path='/Professor/ExamSchedule' element={<ProfessorExamSchedule/>}/>
+                <Route path='/Dashboard/Professor/:professorId' element={<ProfessorDashboard/>}/>
+                <Route path='/Professor/CourseSchedule/:professorId' element={<ProfessorCourseSchedule/>}/>
+                <Route path='/Professor/ExamSchedule/:professorId' element={<ProfessorExamSchedule/>}/>
+                <Route path='/Professor/PAT/:professorId' element={<PATProfessor/>}/>
             </Routes>
             </LanguageContext.Provider>
     )

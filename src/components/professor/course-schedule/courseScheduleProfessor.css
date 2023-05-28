@@ -1,0 +1,13 @@
+.courseScheduleProfessor-cards{
+    display: none;
+}
+
+@media only screen and (max-width: 780px) {
+
+    .courseScheduleProfessor-cards{
+        margin-top: 9rem;
+        display: flex;
+    }
+
+
+}

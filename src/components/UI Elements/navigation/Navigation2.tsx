@@ -7,7 +7,7 @@ import {useNavigate, useParams} from "react-router-dom";
 interface NavigationProps{
     field1: string,
     field2?: string,
-    field3: string,
+    field3?: string,
     field4: string,
     onClick?: React.MouseEventHandler<HTMLAnchorElement>;
     field5: string,
@@ -16,6 +16,12 @@ interface NavigationProps{
     navigate2: string,
     navigate3: string,
     navigate4: string,
+    page1?: string,
+    page2?: string,
+    page3?: string,
+    navPage1?: string,
+    navPage2?: string,
+    navPage3?: string,
 }
 
 function Navigation2(props: NavigationProps) {
@@ -69,6 +75,16 @@ function Navigation2(props: NavigationProps) {
                     <div id={"navbar"}>
                         <a onClick={() => navigate(props.navigate2)}>{props.field3}</a>
                         <hr/>
+                        {props.navPage1 && (
+                            <>
+                                <a onClick={() => navigate(props.navPage1)}>{props.page1}</a>
+                                <hr />
+                                <a onClick={() => navigate(props.navPage2)}>{props.page2}</a>
+                                <hr />
+                                <a onClick={() => navigate(props.navPage3)}>{props.page3}</a>
+                                <hr />
+                            </>
+                        )}
                         <a onClick={props.onClick} >{props.field4}</a>
                         <hr/>
                         <a href={props.navigate3}>{props.field5}</a>

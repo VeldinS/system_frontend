@@ -14,6 +14,9 @@ function PerformanceStudent() {
                              field4={'Language'} field5={'Help'} field6={'Logout'}
                              navigate1={`/Dashboard/Student/${studentId}`} navigate2={`/Settings/Student/${studentId}`} navigate3={'https://www.ius.edu.ba/en/contact'} navigate4={'/Login/Student'}
                 />
+
+                <h1 style={{margin: "auto"}}>Ovdje ide performance analysis tool....</h1>
+
             </div>
         </div>
     );
