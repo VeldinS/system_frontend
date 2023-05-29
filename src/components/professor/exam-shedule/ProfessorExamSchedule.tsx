@@ -20,7 +20,7 @@ function ProfessorExamSchedule() {
 
     //FETCH STUDENT DATA
     useEffect(() => {
-        fetch(   `http://localhost:5000/Professor/${professorId}`)
+        fetch(   `https://sysbackend-jhed.onrender.com/Professor/${professorId}`)
             .then((res) => res.json())
             .then((data) => setProfessorData(data as Professor))
     }, [professorId]);

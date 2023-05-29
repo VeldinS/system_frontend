@@ -29,7 +29,7 @@ function ProfessorLogin() {
         event.preventDefault();
         const professorCredentials = {...formData};
         try {
-            const res = await fetch(  'http://localhost:5000/Login/Professor', {
+            const res = await fetch(  'https://sysbackend-jhed.onrender.com/Login/Professor', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
