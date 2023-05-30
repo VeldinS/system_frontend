@@ -21,6 +21,10 @@ import ProfessorCourseSchedule from "./components/professor/course-schedule/Prof
 import ProfessorExamSchedule from "./components/professor/exam-shedule/ProfessorExamSchedule";
 import LanguageContext from './languages/languageContext';
 import PATProfessor from "./components/professor/PAT/PATProfessor";
+import SaoDashboard from "./components/sao/sao-dashboard/SaoDashboard";
+import SaoDocuments from "./components/sao/sao-newDocuments/SaoDocuments";
+import SaoRecovery from "./components/sao/sao-newRecovery/SaoRecovery";
+import SaoNewStudent from "./components/sao/sao-newStudent/SaoNewStudent";
 
 
 function App() {
@@ -60,7 +64,11 @@ function App() {
                 <Route path='/Professor/CourseSchedule/:professorId' element={<ProfessorCourseSchedule/>}/>
                 <Route path='/Professor/ExamSchedule/:professorId' element={<ProfessorExamSchedule/>}/>
                 <Route path='/Professor/PAT/:professorId' element={<PATProfessor/>}/>
-            </Routes>
+                <Route path='/Dashboard/SAO/:saoId' element={<SaoDashboard/>}/>
+                <Route path='/SAO/Documents/:saoId' element={<SaoDocuments/>}/>
+                <Route path='/SAO/Recover/:saoId' element={<SaoRecovery/>}/>
+                <Route path='/SAO/Register/:saoId' element={<SaoNewStudent/>}/>
+        </Routes>
         </LanguageContext.Provider>
     )
   }
@@ -86,6 +94,10 @@ function App() {
                 <Route path='/Professor/CourseSchedule/:professorId' element={<ProfessorCourseSchedule/>}/>
                 <Route path='/Professor/ExamSchedule/:professorId' element={<ProfessorExamSchedule/>}/>
                 <Route path='/Professor/PAT/:professorId' element={<PATProfessor/>}/>
+                <Route path='/Dashboard/SAO/:saoId' element={<SaoDashboard/>}/>
+                <Route path='/SAO/Documents/:saoId' element={<SaoDocuments/>}/>
+                <Route path='/SAO/Recover/:saoId' element={<SaoRecovery/>}/>
+                <Route path='/SAO/Register/:saoId' element={<SaoNewStudent/>}/>
             </Routes>
             </LanguageContext.Provider>
     )

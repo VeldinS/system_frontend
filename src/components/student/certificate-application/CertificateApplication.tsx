@@ -31,6 +31,7 @@ function CertificateApplication() {
         setFormData({ ...formData, [name]: value });
     }
 
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
         setFormData({...formData, [name]: value});
@@ -90,8 +91,8 @@ function CertificateApplication() {
                                     <label>{texts[language].scaSelectField2}</label>
                                     <select className={"certificate-select"} value={formData.docLanguage} onChange={handleChangeSelect} name="docLanguage">
                                         <option value=""></option>
-                                        <option value={'Detailed Transcript'}>English</option>
-                                        <option value={'Signed Document'}>Bosanski</option>
+                                        <option value={'English'}>English</option>
+                                        <option value={'Bosanski'}>Bosanski</option>
                                     </select>
                                 </div>
                             </div>

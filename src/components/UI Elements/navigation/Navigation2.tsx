@@ -53,7 +53,7 @@ function Navigation2(props: NavigationProps) {
         <div className={"navigation"}>
             <nav>
                 <div className={"navigation-bar"}>
-                    <div onClick={() => navigate(`/Dashboard/Student/${studentId}`)} className={"navigation-logo"}>
+                    <div className={"navigation-logo"}>
                         <img src={image1} alt={''}/>
                     </div>
 

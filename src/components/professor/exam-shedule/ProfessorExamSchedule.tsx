@@ -5,6 +5,8 @@ import {useParams} from "react-router-dom";
 import {Professor} from "../../../functions/helper";
 import {texts} from "../../../languages/language";
 
+import './professorExam.css'
+
 function ProfessorExamSchedule() {
 
     const {professorId} = useParams();
@@ -28,7 +30,7 @@ function ProfessorExamSchedule() {
 
     return (
         <div>
-            <div className={"login-page-main"} style={{minHeight: "100vh"}}>
+            <div className={"login-page-main exam-page-main"} style={{minHeight: "100vh"}}>
                 <Navigation2 field1={texts[language].examScheduleHeading} field2={texts[language].backToDash} page1={texts[language].navBut4} page2={texts[language].navBut1} page3={texts[language].navBut3}
                              navPage1={`/Dashboard/Professor/${professorId}`}
                              navPage2={`/Professor/CourseSchedule/${professorId}`}

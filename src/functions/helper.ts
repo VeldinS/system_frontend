@@ -400,3 +400,32 @@ export interface Professor{
 
 }
 
+export type Document = {
+    _id: string;
+    docType: string;
+    docLanguage: string;
+    docCopies: number;
+    docReason: string;
+}
+
+export type RecoverDoc = {
+    _id: string;
+    studentId: string;
+    studentMail: string;
+    securityQuestion: string;
+    securityAnswer: string;
+}
+
+export type RegisterDoc = {
+    _id: string;
+    name: string,
+    surname: string,
+    mail: string,
+    phone: number,
+    studentId: string,
+    citizenshipId: string,
+    department: string,
+    securityQuestion: string,
+    securityAnswer: string,
+}
+

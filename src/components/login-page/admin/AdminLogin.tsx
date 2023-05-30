@@ -6,6 +6,7 @@ import {AuthContext} from "../../../authentication/authContext";
 import './adminLogin.css'
 import Navigation from "../../UI Elements/navigation/Navigation";
 import {texts} from "../../../languages/language";
+import toast, {Toaster} from "react-hot-toast";
 
 const AdminLogin: React.FC = () => {
 
@@ -18,7 +19,8 @@ const AdminLogin: React.FC = () => {
 
     const auth = useContext(AuthContext)
     const navigate = useNavigate()
-    const [formData, setFormData] = useState({username: '', password: ''})
+
+    const [formData, setFormData] = useState({mail: '', password: ''})
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
@@ -27,20 +29,35 @@ const AdminLogin: React.FC = () => {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const adminCredentials = {...formData};
+        const saoCredentials = {...formData};
         try {
-            const res = await fetch(  'https://sysbackend-jhed.onrender.com/Login/Admin', {
+            const res = await fetch(  'https://sysbackend-jhed.onrender.com/Login/SAO', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(adminCredentials)
+                body: JSON.stringify(saoCredentials)
             })
             if (res.status === 200) {
+                const data = await res.json();
+                const saoId = data.user._id;
                 auth.login();
-                navigate('/Admin/Dashboard');
+                navigate(`/Dashboard/SAO/${saoId}`);
             } else {
-                alert('INVALID CREDENTIALS');
+                if(language == 'bosnian'){
+                    toast.error('Podaci za prijavi nisu validni!', {style: {
+                            borderRadius: '10px',
+                            background: '#333',
+                            color: '#fff',
+                        }});
+                }
+                else if(language == 'english'){
+                    toast.error('Login information not valid!', {style: {
+                            borderRadius: '10px',
+                            background: '#333',
+                            color: '#fff',
+                        }});
+                }
             }
         } catch (err) {
             console.log('invalid credentials')
@@ -54,21 +71,22 @@ const AdminLogin: React.FC = () => {
                 <div className={"form-part"} style={{paddingTop: "4rem"}}   >
                     <div className="form-container">
                         <p className="title">Admin Login</p>
-                        <form className="form">
+                        <form className="form" onSubmit={handleSubmit}>
                             <div className="input-group">
                                 <label htmlFor="username">Mail</label>
-                                <input type="text" name="username" id="username" placeholder=""/>
+                                <input value={formData.mail} onChange={handleChange} type="text" name="mail" id="username" placeholder=""/>
                             </div>
                             <div style={{marginBottom: "1rem"}} className="input-group">
-                                <label htmlFor="password">Password</label>
-                                <input type="password" name="password" id="password" placeholder=""/>
+                                <label htmlFor="password">{texts[language].passwordField1}</label>
+                                <input value={formData.password} onChange={handleChange} type="password" name="password" id="password" placeholder=""/>
                             </div>
-                            <button className="sign" onClick={() => navigate('/Admin/Dashboard')}>Login</button>
+                            <button type={'submit'} className="sign">Login</button>
                         </form>
-                        <p className="signup signup2" onClick={() => navigate('/Login/Student')}>Login as student?</p>
+                        <p className="signup signup2" onClick={() => navigate('/Login/Student')}>{texts[language].loginAsStudent}</p>
                     </div>
                 </div>
             </div>
+            <Toaster/>
         </div>
     );
 };

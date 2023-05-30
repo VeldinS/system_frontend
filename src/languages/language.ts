@@ -117,6 +117,20 @@ export const texts:any = {
         navBut3: "Performanse",
         navBut4: "Kontrolna Tabla",
 
+
+        //SAO
+        saoButton1: "ZAHTJEVI ZA DOKUMENTE",
+        saoButton1_1: "Provjerite zahtjeve za prijavu novih studentskih certifikata!",
+        saoButton2: "REGISTRACIJA STUDENATA",
+        saoButton2_1: "Provjerite prijave novih studenata!",
+        saoButton3: "OPORAVAK PROFILA",
+        saoButton3_1: "Provjerite ima li zahtjeva za oporavak profila!",
+        saoNav1: "Zahtjevi za Dokumente",
+        saoNav2: "Registracija Studenata",
+        saoNav3: "Oporavak Profila",
+        saoDoc1: "Vrsta dokumenta:",
+        saoDoc2: "Jezik dokumenta:",
+        saoDoc3: "Broj kopija:",
     },
 
 
@@ -198,7 +212,7 @@ export const texts:any = {
         forgotPassword: "Forgot Password ?",
         registerInfoField1: "Don't have a student account jet?",
         registerInfoField2: "Register!",
-        adminLoginButton: "Login as admin??",
+        adminLoginButton: "Login as admin?",
 
         //ACCOUNT RECOVER
         accRecHeading: "Recover Your Account",
@@ -235,5 +249,21 @@ export const texts:any = {
         navBut2: "Exam Schedule",
         navBut3: "Performance",
         navBut4: "Dashboard",
+
+
+        //SAO
+        saoButton1: "DOCUMENT REQUESTS",
+        saoButton1_1: "Check for new student certificate application requests!",
+        saoButton2: "STUDENT REGISTRATION",
+        saoButton2_1: "Check for new student registrations!",
+        saoButton3: "ACCOUNT RECOVERY",
+        saoButton3_1: "Check for any account recovery requests!",
+        saoNav1: "Document Requests",
+        saoNav2: "Student Registration",
+        saoNav3: "Account Recovery",
+        saoDoc1: "Document type",
+        saoDoc2: "Document Language",
+        saoDoc3: "Number of copies",
+
     }
 };
