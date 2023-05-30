@@ -18,7 +18,7 @@ function saoDashboard() {
 
     return (
         <div>
-            <div className={"professor-dashboard-main"} style={{minHeight: "100vh"}}>
+            <div className={"sao-dashboard-main1"} style={{minHeight: "100vh"}}>
                 <Navigation2 field1={'STUDENTS AFFAIRS OFFICE'} page1={texts[language].saoNav1} page2={texts[language].saoNav2} page3={texts[language].saoNav3}
                              navPage1={`/SAO/Documents/${saoId}`}
                              navPage2={`/SAO/Register/${saoId}`}
