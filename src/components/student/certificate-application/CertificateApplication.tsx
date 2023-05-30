@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './certificateApplication.css'
 import Navigation2 from "../../UI Elements/navigation/Navigation2";
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import {texts} from "../../../languages/language";
 import toast, {Toaster} from "react-hot-toast";
+import {Student} from "../../../functions/helper";
 
 function CertificateApplication() {
 
@@ -12,7 +13,17 @@ function CertificateApplication() {
 
     const {studentId} = useParams()
 
+    useEffect(() => {
+        fetch(   `https://sysbackend-jhed.onrender.com/Student/${studentId}`)
+            .then((res) => res.json())
+            .then((data) => setStudentData(data as Student))
+    }, [studentId]);
+
+    const [studentData, setStudentData] = useState<Student>()
+
     const [formData, setFormData] = useState({
+        studentName: studentData?.name,
+        studentSurname: studentData?.surname,
         docType: '',
         docLanguage: '',
         docCopies: '',
@@ -40,6 +51,8 @@ function CertificateApplication() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const newDocument = {
+            studentName: studentData?.name,
+            studentSurname: studentData?.surname,
             docType: formData.docType,
             docLanguage: formData.docLanguage,
             docCopies: formData.docCopies,

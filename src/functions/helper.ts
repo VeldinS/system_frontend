@@ -402,6 +402,8 @@ export interface Professor{
 
 export type Document = {
     _id: string;
+    studentName: string;
+    studentSurname: string;
     docType: string;
     docLanguage: string;
     docCopies: number;

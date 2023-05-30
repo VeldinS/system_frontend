@@ -74,11 +74,13 @@ function SaoDocuments() {
                                     </div>
                                 </div>
                                 <div className="card__content">
+                                    <h5 style={{margin: "10px", padding: "0", textAlign:"left"}}>{document.studentName} {document.studentSurname}</h5>
+                                    <hr/>
                                     <h6 style={{margin: "0", padding: "0"}}>{texts[language].saoDoc1}</h6>
-                                    <h3 style={{margin: "0", paddingBottom: "20px"}}>{document.docType}</h3>
+                                    <h3 style={{margin: "0", paddingBottom: "10px"}}>{document.docType}</h3>
                                     <hr/>
                                     <h6 style={{margin: "0", padding: "0"}}>{texts[language].saoDoc2}</h6>
-                                    <h3 style={{margin: "0", paddingBottom: "20px"}}>{document.docLanguage}</h3>
+                                    <h3 style={{margin: "0", paddingBottom: "10px"}}>{document.docLanguage}</h3>
                                     <hr/>
                                     <h5 style={{margin: "0", padding: "0"}}>{texts[language].saoDoc3} {document.docCopies}</h5>
                                     <p>{document.docReason}</p>
