@@ -7,9 +7,11 @@ import './adminLogin.css'
 import Navigation from "../../UI Elements/navigation/Navigation";
 import {texts} from "../../../languages/language";
 import toast, {Toaster} from "react-hot-toast";
+import Loader from "../../UI Elements/Loader";
 
 const AdminLogin: React.FC = () => {
 
+    const [isLoading, setIsLoading] = useState(false);
     const [language, setLanguage] = useState(localStorage.getItem("language") || "bosnian");
     const toggleLanguage = () => {
         const newLanguage = language === "bosnian" ? "english" : "bosnian";
@@ -28,6 +30,7 @@ const AdminLogin: React.FC = () => {
     }
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        setIsLoading(true);
         event.preventDefault();
         const saoCredentials = {...formData};
         try {
@@ -43,7 +46,9 @@ const AdminLogin: React.FC = () => {
                 const saoId = data.user._id;
                 auth.login();
                 navigate(`/Dashboard/SAO/${saoId}`);
+                setIsLoading(false);
             } else {
+                setIsLoading(false);
                 if(language == 'bosnian'){
                     toast.error('Podaci za prijavi nisu validni!', {style: {
                             borderRadius: '10px',
@@ -68,6 +73,11 @@ const AdminLogin: React.FC = () => {
         <div>
             <div className={"login-page-main"} style={{minHeight: "100vh"}}>
                 <Navigation onClick={toggleLanguage} field1={texts[language].languageSelect}/>
+                {isLoading ? (
+                    <div style={{margin:"auto"}}>
+                        <Loader/>
+                    </div>
+                ) : (
                 <div className={"form-part"} style={{paddingTop: "4rem"}}   >
                     <div className="form-container">
                         <p className="title">Admin Login</p>
@@ -85,6 +95,7 @@ const AdminLogin: React.FC = () => {
                         <p className="signup signup2" onClick={() => navigate('/Login/Student')}>{texts[language].loginAsStudent}</p>
                     </div>
                 </div>
+                )}
             </div>
             <Toaster/>
         </div>

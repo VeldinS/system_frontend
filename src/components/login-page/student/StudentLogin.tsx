@@ -7,9 +7,11 @@ import './studentLogin.css'
 import Navigation from "../../UI Elements/navigation/Navigation";
 import toast, {Toaster} from "react-hot-toast";
 import {texts} from "../../../languages/language";
+import Loader from "../../UI Elements/Loader";
 
 
 const StudentLogin: React.FC = () => {
+    const [isLoading, setIsLoading] = useState(false);
 
     const auth = useContext(AuthContext)
 
@@ -30,6 +32,7 @@ const StudentLogin: React.FC = () => {
     }
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        setIsLoading(true);
         event.preventDefault();
         const studentCredentials = {...formData};
         try {
@@ -45,7 +48,9 @@ const StudentLogin: React.FC = () => {
                 const studentId = data.user._id;
                 auth.login();
                 navigate(`/Dashboard/Student/${studentId}`);
+                setIsLoading(false);
             } else {
+                setIsLoading(false);
                 if(language == 'bosnian'){
                     toast.error('Podaci za prijavi nisu validni!', {style: {
                             borderRadius: '10px',
@@ -70,6 +75,11 @@ const StudentLogin: React.FC = () => {
         <div>
             <div className={"login-page-main"} style={{minHeight: "100vh"}}>
                 <Navigation onClick={toggleLanguage} field1={texts[language].languageSelect}/>
+                {isLoading ? (
+                        <div style={{margin:"auto"}}>
+                            <Loader/>
+                        </div>
+                ) : (
                 <div className={"form-part"}>
                     <div className="form-container">
                         <p className="title">Login</p>
@@ -93,6 +103,7 @@ const StudentLogin: React.FC = () => {
                         <p className="signup signup2" onClick={() => navigate('/Login/SAO')}>{texts[language].adminLoginButton}</p>
                     </div>
                 </div>
+                )}
             </div>
             <Toaster/>
         </div>

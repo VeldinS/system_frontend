@@ -4,9 +4,11 @@ import {useNavigate} from "react-router-dom";
 import Navigation from "../../UI Elements/navigation/Navigation";
 import {texts} from "../../../languages/language";
 import toast from "react-hot-toast";
+import Loader from "../../UI Elements/Loader";
 
 function ProfessorLogin() {
 
+    const [isLoading, setIsLoading] = useState(false);
     const auth = useContext(AuthContext)
 
     const navigate = useNavigate()
@@ -26,6 +28,7 @@ function ProfessorLogin() {
     }
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        setIsLoading(true);
         event.preventDefault();
         const professorCredentials = {...formData};
         try {
@@ -41,7 +44,9 @@ function ProfessorLogin() {
                 const professorId = data.user._id;
                 auth.login();
                 navigate(`/Dashboard/Professor/${professorId}`);
+                setIsLoading(false);
             } else {
+                setIsLoading(false);
                 if(language == 'bosnian'){
                     toast.error('Podaci za prijavi nisu validni!', {style: {
                             borderRadius: '10px',
@@ -66,6 +71,11 @@ function ProfessorLogin() {
         <div>
             <div className={"login-page-main"} style={{minHeight: "100vh"}}>
                 <Navigation onClick={toggleLanguage} field1={texts[language].languageSelect}/>
+                {isLoading ? (
+                    <div style={{margin:"auto"}}>
+                        <Loader/>
+                    </div>
+                ) : (
                 <div className={"form-part"} style={{paddingTop: "4rem"}}   >
                     <div className="form-container">
                         <p className="title">{texts[language].loginHeading}</p>
@@ -83,6 +93,7 @@ function ProfessorLogin() {
                         <p className="signup signup2" onClick={() => navigate('/Login/Student')}>{texts[language].loginAsStudent}</p>
                     </div>
                 </div>
+                )}
             </div>
         </div>
     );

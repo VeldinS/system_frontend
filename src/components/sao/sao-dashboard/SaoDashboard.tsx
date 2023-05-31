@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Navigation2 from "../../UI Elements/navigation/Navigation2";
 import Button from "../../UI Elements/dashboard/Button";
-import './saoDashboard.css'
+import '../sao-newDocuments/saoDocuments.css'
 import {useParams} from "react-router-dom";
 import {texts} from "../../../languages/language";
 
