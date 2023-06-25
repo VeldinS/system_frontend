@@ -11,7 +11,7 @@ import {texts} from "../../../languages/language";
 function GradeDetails() {
 
     const {studentId} = useParams()
-    const [studentData, setStudentData] = useState<Student>()
+
 
     const [language, setLanguage] = useState(localStorage.getItem("language") || "bosnian");
     const toggleLanguage = () => {
@@ -20,12 +20,16 @@ function GradeDetails() {
         localStorage.setItem("language", newLanguage);
     }
 
+    const [studentData, setStudentData] = useState<Student>()
+
     //FETCH STUDENT DATA
     useEffect(() => {
         fetch(   `https://sysbackend-jhed.onrender.com/Student/${studentId}`)
             .then((res) => res.json())
             .then((data) => setStudentData(data as Student))
     }, [studentId]);
+
+    let calc1 = studentData ? studentData.takenCourse1Quiz + 3 : 0; // Provide a fallback value, such as 0, when studentData is undefined
 
 
     const options = [

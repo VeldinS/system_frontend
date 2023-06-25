@@ -18,7 +18,7 @@ function ProfessorDashboard() {
 
     return (
         <div>
-            <div className={"professor-dashboard-main"} style={{minHeight: "100vh"}}>
+            <div className={"professor-dashboard-main"} style={{minHeight: "140vh"}}>
                 <Navigation2 field1={texts[language].dashboardHeading} page1={texts[language].navBut1} page2={texts[language].navBut2} page3={texts[language].navBut3}
                              navPage1={`/Professor/CourseSchedule/${professorId}`}
                              navPage2={`/Professor/ExamSchedule/${professorId}`}
